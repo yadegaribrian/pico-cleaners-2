@@ -94,15 +94,18 @@
 
   /* Nav */
   .nav {
-    position:fixed; top:38px; left:0; right:0; z-index:100; padding:18px 0;
-    transition:background 0.4s ease,backdrop-filter 0.4s ease,padding 0.4s ease,border-color 0.4s ease,box-shadow 0.4s ease;
-    border-bottom:1px solid transparent;
-  }
-  .nav.scrolled {
-    background:rgba(244,240,230,0.92);
+    position:fixed; top:38px; left:0; right:0; z-index:100; padding:14px 0;
+    background:rgba(244,240,230,0.85);
     backdrop-filter:blur(18px) saturate(140%);
     -webkit-backdrop-filter:blur(18px) saturate(140%);
-    padding:12px 0; border-bottom-color:var(--line);
+    border-bottom:1px solid rgba(22,27,39,0.06);
+    transition:background 0.4s ease,backdrop-filter 0.4s ease,padding 0.4s ease,border-color 0.4s ease,box-shadow 0.4s ease;
+  }
+  .nav.scrolled {
+    background:rgba(244,240,230,0.95);
+    backdrop-filter:blur(20px) saturate(150%);
+    -webkit-backdrop-filter:blur(20px) saturate(150%);
+    padding:10px 0; border-bottom-color:var(--line);
     box-shadow:var(--shadow-sm);
   }
   .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
@@ -133,7 +136,28 @@
     box-shadow:var(--shadow-sm);
   }
   .nav-cta:hover { background:var(--sky-deep); transform:translateY(-1px); box-shadow:var(--shadow-md); }
-  @media (max-width:1000px) { .nav-links a:not(.nav-cta) { display:none; } }
+  .nav-hotels {
+    background:var(--gold-deep);
+    color:var(--bg) !important;
+    font-weight:500;
+    border:1px solid var(--gold-deep);
+    padding:10px 18px;
+    border-radius:999px;
+    transition:all .3s;
+    display:inline-flex; align-items:center; gap:6px;
+    box-shadow:var(--shadow-sm);
+  }
+  .nav-hotels:hover {
+    background:var(--ink);
+    color:var(--bg) !important;
+    border-color:var(--ink);
+    transform:translateY(-1px);
+    box-shadow:var(--shadow-md);
+  }
+  @media (max-width:1000px) {
+    .nav-links a:not(.nav-cta):not(.nav-hotels) { display:none; }
+    .nav-hotels { padding:8px 14px; font-size:12.5px; }
+  }
 
   /* HERO with 3D conveyor */
   /* Buttons (shared) */
@@ -2286,6 +2310,7 @@
       <a href="#manifesto">About</a>
       <a href="#services">Services</a>
       <a href="#eco">Eco</a>
+      <a href="./hotels.html" class="nav-hotels">Hotels →</a>
       <a href="#reviews">Reviews</a>
       <a href="#visit">Visit</a>
       <a href="#cta" class="nav-cta">Schedule Pickup →</a>
@@ -2301,8 +2326,8 @@
     <div class="van-hero is-loading" id="vanHero">
       <div class="van-hero-glow" aria-hidden="true"></div>
       <video class="van-video" id="vanVideo"
-        src="./images/pico-shirt.mp4"
-        poster="./images/pico-shirt-poster.jpg"
+        src="./images/pico-retail.mp4"
+        poster="./images/pico-retail-poster.jpg"
         muted playsinline preload="auto" disablepictureinpicture
         aria-label="A rumpled white shirt slowly transforms into a perfectly pressed garment">
       </video>

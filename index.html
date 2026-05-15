@@ -1,0 +1,3570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pico Cleaners — Eco Dry Cleaning, Alterations & Garment Care · West Los Angeles · Since 1980</title>
+<meta name="description" content="Family-owned, eco-certified dry cleaner on Pico Blvd in West LA. Same-day cleaning, alterations, fluff & fold, and free pickup & delivery. Forty years of garment care.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:#F8F2EA; --bg-2:#EFE5D2; --bg-3:#DFD3B8;
+    --paper:#FCFBF7;
+    --ink:#161B27; --ink-2:#252B3A; --ink-3:#3A4055;
+    --ink-mute:#666C7A; --ink-soft:#8A8F9D; --ink-faint:#B0B4BE;
+    --sky:#7AA7C7; --sky-deep:#4E83A6; --sky-light:#B6D0E1; --sky-pale:#E6EEF4;
+    --gold:#C9A961; --gold-deep:#8E7530; --gold-light:#E3CC92;
+    --line:rgba(22,27,39,0.10); --line-strong:rgba(22,27,39,0.22);
+    --line-dark:rgba(244,240,230,0.13); --line-dark-strong:rgba(244,240,230,0.26);
+    --shadow-sm:0 1px 2px rgba(22,27,39,0.05), 0 4px 12px rgba(22,27,39,0.05);
+    --shadow-md:0 6px 16px rgba(22,27,39,0.07), 0 18px 40px rgba(22,27,39,0.06);
+    --shadow-lg:0 12px 28px rgba(22,27,39,0.10), 0 30px 60px rgba(22,27,39,0.09);
+    --display:'Fraunces','Times New Roman',serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --max:1340px; --gutter:clamp(20px,4vw,56px);
+    --r-sm:6px; --r-md:12px; --r-lg:18px;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  html { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--body); font-weight:400; line-height:1.6; overflow-x:hidden; }
+  img { max-width:100%; display:block; }
+  a { color:inherit; text-decoration:none; }
+  button { font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+  ::-webkit-scrollbar { width:10px; height:10px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--bg-3); border-radius:10px; }
+  ::-webkit-scrollbar-thumb:hover { background:var(--sky-deep); }
+  ::selection { background:var(--sky-light); color:var(--ink); }
+  .wrap { max-width:var(--max); margin:0 auto; padding:0 var(--gutter); }
+
+  .eyebrow {
+    font-family:var(--mono); font-size:11px; font-weight:500;
+    letter-spacing:0.18em; text-transform:uppercase; color:var(--sky-deep);
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before { content:""; display:inline-block; width:28px; height:1px; background:var(--sky-deep); }
+  .eyebrow.gold { color:var(--gold-deep); }
+  .eyebrow.gold::before { background:var(--gold-deep); }
+  .eyebrow.on-dark { color:var(--sky-light); }
+  .eyebrow.on-dark::before { background:var(--sky-light); }
+
+  h1,h2,h3,h4 {
+    font-family:var(--display); font-weight:400;
+    letter-spacing:-0.025em; line-height:1.02;
+    font-variation-settings:"opsz" 144;
+  }
+  .display-xl { font-size:clamp(52px,9vw,148px); line-height:0.94; letter-spacing:-0.04em; }
+  .display-l  { font-size:clamp(40px,6.5vw,96px); line-height:0.98; letter-spacing:-0.03em; }
+  .display-m  { font-size:clamp(28px,3.8vw,52px); line-height:1.05; }
+  .display-s  { font-size:clamp(22px,2.4vw,32px); line-height:1.15; }
+
+  .reveal-words .line { display:block; overflow:hidden; padding-bottom:0.06em; }
+  .reveal-words .word { display:inline-block; transform:translateY(110%); will-change:transform; }
+  html.no-anim .reveal-words .word { transform:none; }
+  .reveal { opacity:0; transform:translateY(30px); }
+  html.no-anim .reveal { opacity:1; transform:none; }
+
+  /* Scroll progress */
+  .progress-bar {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg,var(--sky-deep),var(--sky) 50%,var(--gold));
+    z-index:200; pointer-events:none;
+  }
+
+  /* Top utility strip */
+  .util-strip {
+    background:var(--ink); color:var(--bg);
+    padding:9px 0; font-size:12px;
+    font-family:var(--mono); letter-spacing:0.06em;
+    position:fixed; top:0; left:0; right:0; z-index:101;
+  }
+  .util-inner { display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  .util-inner a { color:var(--bg); transition:color .25s; }
+  .util-inner a:hover { color:var(--sky-light); }
+  .util-left { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+  .util-left span { display:inline-flex; align-items:center; gap:6px; }
+  .util-left .dot { color:var(--sky-light); }
+  .util-right { display:flex; gap:14px; align-items:center; }
+  @media (max-width:700px) { .util-left span:nth-child(2),.util-left span:nth-child(3) { display:none; } }
+
+  /* Nav */
+  .nav {
+    position:fixed; top:38px; left:0; right:0; z-index:100; padding:18px 0;
+    transition:background 0.4s ease,backdrop-filter 0.4s ease,padding 0.4s ease,border-color 0.4s ease,box-shadow 0.4s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled {
+    background:rgba(244,240,230,0.92);
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    padding:12px 0; border-bottom-color:var(--line);
+    box-shadow:var(--shadow-sm);
+  }
+  .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .brand-mark {
+    width:44px; height:44px;
+    color:var(--ink);
+    display:grid; place-items:center;
+    border:1px solid var(--ink); border-radius:50%;
+  }
+  .brand-name {
+    font-family:var(--display); font-weight:500; font-size:19px;
+    letter-spacing:-0.005em; color:var(--ink);
+  }
+  .brand-name em { font-style:italic; font-weight:400; color:var(--sky-deep); }
+  .brand-name span { color:var(--ink-mute); font-style:italic; font-weight:300; font-size:0.82em; display:block; line-height:1.2; }
+  .nav-links { display:flex; gap:28px; align-items:center; }
+  .nav-links a {
+    font-family:var(--body); font-size:14px;
+    font-weight:500; color:var(--ink-2); transition:color .25s;
+  }
+  .nav-links a:hover { color:var(--sky-deep); }
+  .nav-cta {
+    background:var(--ink); color:var(--bg) !important;
+    padding:11px 22px; border-radius:999px;
+    font-weight:500; transition:all .3s;
+    display:inline-flex; align-items:center; gap:8px;
+    box-shadow:var(--shadow-sm);
+  }
+  .nav-cta:hover { background:var(--sky-deep); transform:translateY(-1px); box-shadow:var(--shadow-md); }
+  @media (max-width:1000px) { .nav-links a:not(.nav-cta) { display:none; } }
+
+  /* HERO with 3D conveyor */
+  /* Buttons (shared) */
+  .btn-primary {
+    background:var(--ink); color:var(--bg); padding:16px 28px;
+    border-radius:999px;
+    font-family:var(--body); font-size:14px; font-weight:500;
+    letter-spacing:0.01em;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:all .3s cubic-bezier(.2,.7,.2,1); border:1px solid var(--ink);
+    box-shadow:var(--shadow-sm);
+  }
+  .btn-primary:hover { background:var(--sky-deep); border-color:var(--sky-deep); transform:translateY(-2px); box-shadow:var(--shadow-md); }
+  .btn-primary svg { transition:transform .3s; }
+  .btn-primary:hover svg { transform:translate(3px,-3px); }
+  .btn-ghost {
+    border:1px solid var(--line-strong); padding:16px 28px;
+    border-radius:999px;
+    font-family:var(--body); font-size:14px; font-weight:500;
+    color:var(--ink); transition:all .3s;
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--paper);
+  }
+  .btn-ghost:hover { border-color:var(--ink); transform:translateY(-1px); box-shadow:var(--shadow-sm); }
+
+  .hero-trust-item { display:flex; align-items:center; gap:10px; }
+  .hero-trust-icon {
+    width:28px; height:28px; border-radius:50%;
+    background:var(--sky-pale); color:var(--sky-deep);
+    display:grid; place-items:center; flex-shrink:0;
+  }
+  .hero-trust-text { color:var(--ink-mute); line-height:1.4; }
+  .hero-trust-text strong { display:block; color:var(--ink); font-weight:600; }
+
+  /* HERO — video fills the entire section, with breathing room */
+  .hero {
+    position:relative;
+    min-height:100vh;
+    height:100vh;
+    /* iOS Safari address bar fix — use small viewport units when supported */
+    min-height:100svh;
+    height:100svh;
+    padding:0;
+    overflow:hidden;
+    background:var(--bg);
+  }
+
+  /* Video wrap = full hero, edge-to-edge */
+  .van-wrap {
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0;
+    z-index:1;
+  }
+  .van-hero {
+    position:relative;
+    width:100%; height:100%;
+    max-width:none;
+    max-height:none;
+    border-radius:0;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    margin:0;
+  }
+  .van-hero-glow {
+    position:absolute;
+    inset:-8%;
+    border-radius:0;
+    background:radial-gradient(ellipse at center, rgba(78,131,166,0.18) 0%, rgba(201,169,97,0.08) 40%, transparent 70%);
+    filter:blur(60px);
+    z-index:0;
+    pointer-events:none;
+    opacity:0;
+    will-change:opacity;
+  }
+  .van-video {
+    position:relative; z-index:1;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center center;
+    display:block;
+    background:var(--bg);
+    will-change:transform;
+  }
+  /* Soft vignette for editorial depth */
+  .van-vignette {
+    position:absolute; inset:0; z-index:2;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse 100% 85% at center, transparent 55%, rgba(22,27,39,0.18) 100%),
+      linear-gradient(180deg, rgba(22,27,39,0.06) 0%, transparent 25%, transparent 70%, rgba(22,27,39,0.32) 100%);
+  }
+  /* Tagline overlay — fades in at end of scroll */
+  .van-tagline {
+    position:absolute;
+    bottom:clamp(50px, 9vh, 100px);
+    left:50%;
+    transform:translateX(-50%) translateY(30px);
+    z-index:5;
+    pointer-events:none;
+    opacity:0;
+    width:min(640px, 88vw);
+    text-align:center;
+    will-change:opacity, transform;
+  }
+  .van-tagline-inner {
+    background:rgba(252,251,247,0.78);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border:1px solid rgba(201,169,97,0.30);
+    border-radius:4px;
+    padding:clamp(22px,3vw,36px) clamp(28px,4vw,52px);
+    box-shadow:
+      0 20px 50px rgba(22,27,39,0.18),
+      0 6px 14px rgba(22,27,39,0.10);
+  }
+  .van-tagline-eyebrow {
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+    opacity:0.95;
+  }
+  .van-tagline-line {
+    font-family:var(--display);
+    font-weight:300;
+    font-size:clamp(22px, 3vw, 36px);
+    line-height:1.15;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .van-tagline-line em {
+    font-style:italic;
+    color:var(--gold);
+    font-weight:400;
+  }
+  .van-tagline.is-visible {
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+    transition:opacity 1.2s cubic-bezier(.2,.7,.2,1), transform 1.2s cubic-bezier(.2,.7,.2,1);
+  }
+  @media (max-width:600px) {
+    .van-tagline { bottom:30px; width:92vw; }
+    .van-tagline-inner { padding:20px 22px; }
+  }
+
+  /* SERVICE CHIPS — quick-link row, replaces in-video hotspots */
+  .service-chips {
+    background:var(--bg);
+    padding:clamp(36px, 5vh, 56px) 0 clamp(28px, 4vh, 40px);
+    border-bottom:1px solid var(--line);
+  }
+  .service-chips-eyebrow {
+    text-align:center;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:28px;
+  }
+  .service-chips-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    align-items:center;
+  }
+  .service-chip {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:11px 18px;
+    background:#FCFBF7;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:var(--body);
+    font-size:13.5px;
+    font-weight:400;
+    letter-spacing:0.005em;
+    transition:all .3s cubic-bezier(.2,.7,.2,1);
+    cursor:pointer;
+  }
+  .service-chip:hover {
+    background:var(--sky-deep);
+    border-color:var(--sky-deep);
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(22,27,39,0.12);
+  }
+  .service-chip-num {
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.14em;
+    color:var(--gold);
+    opacity:0.9;
+    transition:color .3s;
+  }
+  .service-chip:hover .service-chip-num {
+    color:#fff;
+    opacity:0.7;
+  }
+  .service-chip-label {
+    font-family:var(--display);
+    font-weight:400;
+    font-size:15px;
+  }
+  @media (max-width:600px) {
+    .service-chips-row { gap:8px; }
+    .service-chip { padding:9px 14px; font-size:12.5px; }
+    .service-chip-label { font-size:13.5px; }
+  }
+  .van-hero.is-loading::after {
+    content:""; position:absolute; inset:0; z-index:3;
+    background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%);
+    background-size:200% 100%;
+    animation:shimmer 1.6s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes shimmer {
+    0% { background-position:200% 0; }
+    100% { background-position:-200% 0; }
+  }
+  .van-hero-sparkles {
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    z-index:2;
+    pointer-events:none;
+    animation:sparkleSpin 60s linear infinite;
+    transform-origin:center center;
+    opacity:0;
+    will-change:opacity, transform;
+  }
+  @keyframes sparkleSpin {
+    0% { transform:rotate(0deg) scale(1); }
+    50% { transform:rotate(180deg) scale(1.04); }
+    100% { transform:rotate(360deg) scale(1); }
+  }
+  .van-scrub-hint {
+    position:absolute; bottom:20px; left:50%;
+    transform:translateX(-50%);
+    z-index:6;
+    font-family:var(--mono); font-size:11px;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--ink);
+    background:rgba(252,251,247,0.92);
+    backdrop-filter:blur(8px);
+    padding:8px 16px; border-radius:999px;
+    display:flex; align-items:center; gap:10px;
+    opacity:0; pointer-events:none;
+    box-shadow:0 4px 12px rgba(22,27,39,0.10);
+  }
+  .van-scrub-hint::before {
+    content:""; width:6px; height:6px; border-radius:50%;
+    background:var(--sky-deep);
+    animation:pulseDot 1.6s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%,100% { transform:scale(1); opacity:1; }
+    50% { transform:scale(1.6); opacity:0.4; }
+  }
+  .van-scrub-hint.is-visible { opacity:1; transition:opacity .6s ease; }
+
+  /* HERO INTRO — separate section below the video */
+  .hero-intro {
+    padding:clamp(60px,9vh,100px) 0 clamp(40px,6vh,80px);
+    background:var(--bg);
+    position:relative;
+  }
+  .hero-intro-grid {
+    display:grid; grid-template-columns:1fr; gap:40px;
+    align-items:end;
+  }
+  @media (min-width:900px) {
+    .hero-intro-grid { grid-template-columns:1.4fr 1fr; gap:60px; }
+  }
+  .hero-intro-main .hero-eyebrow { margin-bottom:24px; opacity:0; transform:translateY(20px); }
+  .hero-intro-main h1 {
+    margin-bottom:24px; max-width:13ch;
+    font-size:clamp(40px,7vw,96px); line-height:0.98;
+  }
+  .hero-intro-main h1 em { font-style:italic; font-weight:300; color:var(--sky-deep); }
+  .hero-intro-main .hero-sub {
+    max-width:48ch; font-size:clamp(15px,1.15vw,17px); line-height:1.65;
+    color:var(--ink-mute); margin-bottom:30px; font-weight:400;
+    opacity:0; transform:translateY(20px);
+  }
+  .hero-intro-main .hero-actions {
+    display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+    opacity:0; transform:translateY(20px);
+  }
+  .hero-intro-trust {
+    display:flex; flex-direction:column; gap:20px;
+    padding:24px 26px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow-sm);
+    opacity:0; transform:translateY(20px);
+  }
+  .hero-intro-trust .hero-trust-item {
+    display:flex; gap:12px; align-items:center;
+  }
+  .hero-intro-trust .hero-trust-icon { width:32px; height:32px; }
+  .hero-intro-trust .hero-trust-icon svg { width:16px; height:16px; }
+  .hero-intro-trust .hero-trust-text strong { font-size:13.5px; }
+  .hero-intro-trust .hero-trust-text { font-size:13px; }
+
+  /* CLICKABLE SERVICE HOTSPOTS */
+  .svc-hotspots {
+    position:absolute; inset:0;
+    z-index:5;
+    pointer-events:none;
+    opacity:1;
+  }
+  .svc-hotspot {
+    position:absolute;
+    width:64px; height:64px;
+    transform:translate(-50%,-50%);
+    pointer-events:auto;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    z-index:6;
+  }
+  .svc-hotspot-dot {
+    width:24px; height:24px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:
+      0 0 0 5px rgba(201,169,97,0.35),
+      0 0 0 12px rgba(201,169,97,0.18),
+      0 4px 12px rgba(22,27,39,0.3);
+    position:relative;
+    transition:transform .3s ease, box-shadow .3s ease;
+    animation:hotspotPulse 2s ease-in-out infinite;
+  }
+  .svc-hotspot-dot::after {
+    content:""; position:absolute; inset:5px;
+    background:#FFF; border-radius:50%;
+  }
+  @keyframes hotspotPulse {
+    0%, 100% {
+      box-shadow:
+        0 0 0 4px rgba(201,169,97,0.30),
+        0 0 0 10px rgba(201,169,97,0.15),
+        0 2px 8px rgba(22,27,39,0.25);
+    }
+    50% {
+      box-shadow:
+        0 0 0 6px rgba(201,169,97,0.40),
+        0 0 0 16px rgba(201,169,97,0.10),
+        0 2px 12px rgba(22,27,39,0.30);
+    }
+  }
+  .svc-hotspot-label {
+    position:absolute;
+    top:100%; left:50%;
+    transform:translate(-50%, 6px);
+    background:var(--ink);
+    color:var(--bg);
+    font-family:var(--mono); font-size:10.5px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    padding:7px 12px; border-radius:6px;
+    white-space:nowrap;
+    opacity:0;
+    transition:opacity .25s ease, transform .25s ease;
+    pointer-events:none;
+    box-shadow:0 4px 12px rgba(22,27,39,0.25);
+  }
+  .svc-hotspot-label::before {
+    content:""; position:absolute;
+    top:-4px; left:50%;
+    transform:translateX(-50%) rotate(45deg);
+    width:8px; height:8px;
+    background:var(--ink);
+  }
+  .svc-hotspot:hover .svc-hotspot-dot {
+    transform:scale(1.2);
+  }
+  .svc-hotspot:hover .svc-hotspot-label,
+  .svc-hotspot:focus-visible .svc-hotspot-label {
+    opacity:1;
+    transform:translate(-50%, 10px);
+  }
+  .svc-hotspot:focus-visible {
+    outline:2px solid var(--gold);
+    outline-offset:4px;
+    border-radius:50%;
+  }
+
+  /* Scene tags positioned over the section now */
+  .hero .scene-tag {
+    position:absolute;
+    z-index:5;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:11px 14px;
+    box-shadow:0 6px 16px rgba(22,27,39,0.10);
+    font-family:var(--mono); font-size:10px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-mute);
+    display:flex; flex-direction:column; gap:3px;
+    max-width:200px;
+  }
+  .hero .scene-tag strong { color:var(--ink); font-weight:600; font-size:11px; letter-spacing:0.06em; }
+  .hero .scene-tag em { color:var(--sky-deep); font-style:normal; }
+  .hero .scene-tag.top-left { top:120px; right:48px; left:auto; }
+  .hero .scene-tag.bottom-right { bottom:60px; left:48px; right:auto; }
+  .hero .scene-tag-row {
+    display:flex; gap:6px; align-items:center;
+    padding-top:4px; margin-top:2px;
+    border-top:1px dashed rgba(22,27,39,0.16);
+    font-size:9px;
+  }
+  .hero .scene-tag.top-left::before,
+  .hero .scene-tag.bottom-right::before {
+    content:""; position:absolute;
+    width:6px; height:6px; border-radius:50%;
+  }
+  .hero .scene-tag.top-left::before {
+    background:var(--sky-deep);
+    top:-3px; right:-3px;
+    box-shadow:0 0 0 2px var(--paper);
+  }
+  .hero .scene-tag.bottom-right::before {
+    background:var(--gold);
+    top:-3px; left:-3px;
+    box-shadow:0 0 0 2px var(--paper);
+  }
+
+  @media (max-width:900px) {
+    .hero { padding:100px 12px 60px; }
+    .van-wrap { inset:100px 12px 60px; }
+    .hero .scene-tag { display:none; }
+    .svc-hotspot { width:44px; height:44px; }
+    .svc-hotspot-dot { width:14px; height:14px; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .van-hero-glow, .van-hero-sparkles, .svc-hotspots { opacity:1 !important; }
+  }
+  /* Legacy van scene styles below kept for fallback / harmless. */
+  .van-stage {
+    position:relative;
+    width:min(100%,640px);
+    aspect-ratio:1;
+    perspective:1500px;
+    perspective-origin:50% 48%;
+  }
+  .van-scene {
+    position:absolute; inset:0;
+    transform-style:preserve-3d;
+    transform:rotateX(-4deg);
+  }
+
+  /* Ground shadow ellipse */
+  .van-shadow {
+    position:absolute;
+    bottom:11%; left:14%; right:14%;
+    height:26px;
+    background:radial-gradient(ellipse, rgba(22,27,39,0.32) 0%, rgba(22,27,39,0.12) 50%, transparent 75%);
+    border-radius:50%;
+    z-index:0;
+    filter:blur(2px);
+  }
+
+  /* Van body (back panel without doors) */
+  .van-body-svg {
+    position:absolute;
+    top:14%; left:50%;
+    transform:translateX(-50%);
+    width:80%; max-width:520px;
+    z-index:2;
+    filter:drop-shadow(0 14px 22px rgba(22,27,39,0.18));
+  }
+
+  /* Interior — visible when doors open */
+  .van-interior {
+    position:absolute;
+    top:23%; left:50%;
+    transform:translate(-50%,0);
+    width:42%; max-width:280px;
+    height:42%;
+    background:
+      linear-gradient(180deg, #0B0E16 0%, #1A2030 40%, #0B0E16 100%),
+      radial-gradient(circle at 50% 30%, #2A3140 0%, #0B0E16 70%);
+    background-blend-mode:multiply;
+    border:1px solid #000;
+    border-radius:3px;
+    box-shadow:
+      inset 0 0 50px rgba(0,0,0,0.85),
+      inset 0 2px 0 rgba(255,255,255,0.04);
+    z-index:1;
+    overflow:hidden;
+  }
+  /* Garment rail inside */
+  .van-interior-rail {
+    position:absolute;
+    top:14%; left:8%; right:8%;
+    height:2px;
+    background:linear-gradient(90deg, #1A1F2E, #6B7280 30%, #B0B4BE 50%, #6B7280 70%, #1A1F2E);
+    box-shadow:0 1px 0 #000;
+  }
+  .van-interior-rail::before, .van-interior-rail::after {
+    content:""; position:absolute;
+    top:-2px; width:4px; height:8px;
+    background:#3A4055;
+    border-radius:1px;
+  }
+  .van-interior-rail::before { left:-2px; }
+  .van-interior-rail::after { right:-2px; }
+
+  /* Empty hangers inside */
+  .van-interior-hanger {
+    position:absolute; top:16%;
+    width:14px; height:18px;
+    pointer-events:none;
+  }
+  .van-interior-hanger svg { width:100%; height:100%; opacity:0.65; }
+
+  /* Wood floor lines inside */
+  .van-interior-floor {
+    position:absolute; bottom:0; left:0; right:0;
+    height:30%;
+    background:
+      linear-gradient(180deg, transparent 0%, #1A1410 60%, #0B0805 100%),
+      repeating-linear-gradient(90deg, #2A1F18 0px, #2A1F18 14px, #1A1410 14px, #1A1410 16px);
+    background-blend-mode:multiply;
+    border-top:1px solid #000;
+  }
+
+  /* Light strip on ceiling of interior */
+  .van-interior-light {
+    position:absolute; top:4%; left:30%; right:30%;
+    height:3px;
+    background:linear-gradient(90deg, transparent, #F5E6B8 30%, #FFFFFF 50%, #F5E6B8 70%, transparent);
+    box-shadow:
+      0 0 8px rgba(245,230,184,0.7),
+      0 6px 20px rgba(245,230,184,0.25);
+    opacity:0;
+    transition:opacity 0.6s ease 1.2s;
+  }
+  .van-scene.opened .van-interior-light { opacity:1; }
+
+  /* Doors */
+  .van-door {
+    position:absolute;
+    top:23%;
+    width:21%; max-width:140px;
+    height:42%;
+    z-index:5;
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+  .van-door-left {
+    left:29%;
+    transform-origin:left center;
+    transform:rotateY(0deg);
+  }
+  .van-door-right {
+    right:29%;
+    transform-origin:right center;
+    transform:rotateY(0deg);
+  }
+  .van-door-svg {
+    width:100%; height:100%;
+    backface-visibility:visible;
+    filter:drop-shadow(0 6px 10px rgba(22,27,39,0.22));
+  }
+
+  /* Service items — fly out of van */
+  .service-item {
+    position:absolute;
+    top:50%; left:50%;
+    width:104px; height:104px;
+    margin-left:-52px; margin-top:-52px;
+    display:flex;
+    align-items:center; justify-content:center;
+    z-index:4;
+    opacity:0;
+    will-change:transform, opacity;
+  }
+  .service-item-art {
+    width:100%; height:100%;
+    filter:drop-shadow(0 10px 16px rgba(22,27,39,0.28));
+  }
+  .service-item-label {
+    position:absolute;
+    bottom:-12px; left:50%;
+    transform:translateX(-50%);
+    background:var(--paper);
+    padding:5px 11px;
+    border-radius:99px;
+    font-family:var(--mono);
+    font-size:9.5px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    white-space:nowrap;
+    border:1px solid var(--line);
+    box-shadow:0 3px 6px rgba(22,27,39,0.12);
+  }
+  .service-item-label::before {
+    content:""; position:absolute;
+    top:-3px; left:50%;
+    transform:translateX(-50%);
+    width:5px; height:5px; border-radius:50%;
+    background:var(--sky-deep);
+    box-shadow:0 0 0 2px var(--paper);
+  }
+
+  /* Prop items — decorative duplicates without labels for explosion density */
+  .service-item.is-prop .service-item-label { display:none; }
+  .service-item.is-prop .service-item-art { opacity:0.92; }
+
+  /* Floating tags */
+  .scene-tag {
+    position:absolute; z-index:8;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:12px 14px; border-radius:6px;
+    box-shadow:var(--shadow-sm);
+    font-family:var(--mono); font-size:10px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-mute);
+    display:flex; flex-direction:column; gap:3px;
+    max-width:180px;
+  }
+  .scene-tag::before {
+    content:""; position:absolute;
+    width:6px; height:6px; border-radius:50%;
+    background:var(--sky-deep);
+    box-shadow:0 0 0 2px var(--paper);
+  }
+  .scene-tag.top-left { top:2%; left:-3%; transform:rotate(-3deg); }
+  .scene-tag.top-left::before { top:-3px; right:-3px; }
+  .scene-tag.bottom-right { bottom:3%; right:-2%; transform:rotate(2deg); }
+  .scene-tag.bottom-right::before { top:-3px; left:-3px; background:var(--gold); }
+  .scene-tag strong { color:var(--ink); font-weight:600; font-size:11px; letter-spacing:0.08em; }
+  .scene-tag em { color:var(--sky-deep); font-style:normal; }
+  .scene-tag-row {
+    display:flex; gap:6px; align-items:center;
+    padding-top:4px; margin-top:2px;
+    border-top:1px dashed rgba(22,27,39,0.18);
+    font-size:9px;
+  }
+
+  /* Exhaust puffs */
+  .van-exhaust {
+    position:absolute;
+    bottom:18%; left:38%;
+    z-index:0; pointer-events:none;
+    width:80px; height:60px;
+  }
+  .van-exhaust-puff {
+    position:absolute; bottom:0; left:50%;
+    width:38px; height:28px;
+    margin-left:-19px;
+    border-radius:50%;
+    background:radial-gradient(ellipse, rgba(255,255,255,0.55), rgba(255,255,255,0) 70%);
+    will-change:transform, opacity;
+  }
+
+  @media (max-width:700px) {
+    .van-stage { aspect-ratio:1.05; }
+    .service-item { width:80px; height:80px; margin-left:-40px; margin-top:-40px; }
+    .service-item-label { font-size:8.5px; padding:4px 9px; }
+  }
+
+  .hero-scroll {
+    position:absolute; bottom:36px; right:var(--gutter); z-index:3;
+    display:flex; align-items:center; gap:14px;
+    font-family:var(--mono); font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--ink-mute);
+  }
+  .hero-scroll-line {
+    width:1px; height:46px; background:linear-gradient(to bottom,transparent,var(--sky-deep));
+    position:relative; overflow:hidden;
+  }
+  .hero-scroll-line::after {
+    content:''; position:absolute; top:-20px; left:0; right:0; height:20px;
+    background:var(--sky); animation:scrollDot 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollDot { 0% {top:-20px;} 100% {top:46px;} }
+
+  /* Marquee */
+  .marquee {
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    overflow:hidden; background:var(--bg-2);
+  }
+  .marquee-track {
+    display:flex; gap:48px; padding:18px 0;
+    animation:marquee 42s linear infinite; white-space:nowrap;
+  }
+  .marquee-track span {
+    font-family:var(--display); font-size:20px; font-style:italic;
+    font-weight:300; color:var(--ink-mute);
+  }
+  .marquee-track span::before {
+    content:"●"; color:var(--sky-deep); font-style:normal;
+    margin-right:48px; display:inline-block; font-size:7px; vertical-align:middle;
+  }
+  @keyframes marquee { 0% {transform:translateX(0);} 100% {transform:translateX(-50%);} }
+
+  /* Manifesto */
+  .manifesto { padding:clamp(90px,13vh,160px) 0; background:var(--bg); }
+  .manifesto-grid { display:grid; grid-template-columns:1fr; gap:50px; }
+  @media (min-width:900px) { .manifesto-grid { grid-template-columns:1fr 2fr; gap:90px; } }
+  .manifesto-side .eyebrow { margin-bottom:24px; }
+  .manifesto-side p { color:var(--ink-mute); font-size:14px; line-height:1.7; margin-top:24px; font-weight:400; }
+  .manifesto h2 { margin-bottom:32px; }
+  .manifesto h2 em { color:var(--sky-deep); font-style:italic; font-weight:300; }
+  .manifesto-body { font-size:clamp(16px,1.2vw,18px); line-height:1.7; color:var(--ink-2); max-width:62ch; font-weight:400; }
+  .manifesto-body p+p { margin-top:18px; }
+  .manifesto-callout {
+    margin-top:44px; padding:24px 28px;
+    border-left:2px solid var(--sky-deep); background:rgba(122,167,199,0.07);
+    font-size:14.5px; line-height:1.65; color:var(--ink-2);
+  }
+  .manifesto-callout strong {
+    color:var(--sky-deep); font-weight:500; display:block; margin-bottom:6px;
+    font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  }
+  .stats {
+    margin-top:60px; padding-top:48px; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(2,1fr); gap:32px 24px;
+  }
+  @media (min-width:800px) { .stats { grid-template-columns:repeat(4,1fr); } }
+  .stat-num {
+    font-family:var(--display); font-size:clamp(36px,4.5vw,60px);
+    font-weight:400; line-height:1; letter-spacing:-0.025em;
+    color:var(--ink); display:flex; align-items:baseline; gap:4px;
+  }
+  .stat-num em { color:var(--sky-deep); font-style:italic; font-weight:300; font-size:0.7em; }
+  .stat-label {
+    margin-top:12px; font-size:13px; color:var(--ink-mute); line-height:1.5;
+  }
+  .stat-label strong { display:block; color:var(--ink); font-weight:600; font-size:13.5px; margin-bottom:2px; }
+
+  /* === EXPLOSIVE 3D SERVICES === */
+  .explosion {
+    background:var(--ink);
+    color:var(--bg);
+    padding:clamp(100px,15vh,180px) 0 clamp(120px,18vh,220px);
+    position:relative;
+    overflow:hidden;
+  }
+  .explosion::before {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(122,167,199,0.16) 0%, transparent 55%),
+      radial-gradient(circle at 80% 100%, rgba(201,169,97,0.10) 0%, transparent 50%);
+  }
+  .explosion-head { max-width:920px; margin:0 auto 60px; text-align:center; position:relative; z-index:2; }
+  .explosion-head .eyebrow { color:var(--sky-light); justify-content:center; }
+  .explosion-head .eyebrow::before { background:var(--sky-light); }
+  .explosion-head h2 { color:var(--bg); margin-top:22px; }
+  .explosion-head h2 em { color:var(--sky-light); font-style:italic; font-weight:300; }
+  .explosion-head p { color:var(--ink-soft); font-size:16px; line-height:1.7; max-width:54ch; margin:24px auto 0; }
+
+  .explosion-stage {
+    position:relative; z-index:2;
+  }
+  .explosion-grid {
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+    max-width:1180px; margin:0 auto;
+  }
+  @media (min-width:700px) { .explosion-grid { grid-template-columns:repeat(4, 1fr); gap:18px; } }
+
+  /* Each service card looks like a care tag / fabric label */
+  .explode-card {
+    background:linear-gradient(160deg,#FCFBF7 0%,#F4F0E6 100%);
+    color:var(--ink);
+    text-decoration:none !important;
+    cursor:pointer !important;
+    pointer-events:auto !important;
+    padding:30px 26px 28px;
+    border-radius:var(--r-sm);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.4) inset,
+      0 0 0 1px rgba(22,27,39,0.06),
+      0 22px 50px rgba(0,0,0,0.42),
+      0 8px 16px rgba(0,0,0,0.18);
+    display:flex; flex-direction:column;
+    gap:14px;
+    min-height:280px;
+    position:relative;
+    z-index:5;
+    will-change:transform,opacity;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+  }
+  .explode-card:hover {
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 0 0 1px rgba(78,131,166,0.35),
+      0 28px 60px rgba(0,0,0,0.50),
+      0 12px 20px rgba(0,0,0,0.22);
+  }
+  .explode-card:focus-visible {
+    outline:2px solid var(--sky-deep);
+    outline-offset:4px;
+  }
+  /* Hover arrow indicator */
+  .explode-card::before {
+    content:"→";
+    position:absolute; top:18px; right:18px;
+    width:auto; height:auto;
+    background:none;
+    transform:none;
+    font-family:var(--body); font-size:18px; font-weight:500;
+    color:var(--sky-deep);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .explode-card:hover::before {
+    opacity:1;
+    transform:translate(3px, -3px);
+  }
+  .explode-card * { pointer-events:none; }
+
+  /* Expanded detail panel — hidden by default, slides open when card is selected */
+  .explode-card-details {
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:max-height .5s cubic-bezier(.2,.7,.2,1), opacity .35s ease, margin-top .5s ease;
+    margin-top:0;
+  }
+  .explode-card.is-expanded {
+    grid-column:1 / -1;
+    min-height:auto;
+    transform:translateY(0) scale(1) !important;
+    background:linear-gradient(160deg,#FCFBF7 0%,#E8EEF3 100%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 0 0 2px var(--sky-deep),
+      0 30px 70px rgba(0,0,0,0.50),
+      0 14px 24px rgba(0,0,0,0.22);
+  }
+  .explode-card.is-expanded .explode-card-details {
+    max-height:600px;
+    opacity:1;
+    margin-top:14px;
+    pointer-events:auto;
+  }
+  .explode-card.is-expanded .explode-card-details * {
+    pointer-events:auto;
+  }
+  .explode-card-list {
+    list-style:none;
+    padding:0;
+    margin:0 0 18px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  @media (min-width:600px) {
+    .explode-card.is-expanded .explode-card-list { grid-template-columns:1fr 1fr; gap:8px 24px; }
+  }
+  .explode-card-list li {
+    font-size:13.5px;
+    line-height:1.5;
+    color:var(--ink-2);
+    padding-left:20px;
+    position:relative;
+  }
+  .explode-card-list li::before {
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--sky-deep);
+  }
+  .explode-card-cta {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding:14px 16px;
+    background:var(--paper);
+    border-radius:8px;
+    border:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    flex-wrap:wrap;
+  }
+  .explode-card-cta em {
+    color:var(--ink); font-style:normal; font-weight:600;
+  }
+  .explode-card-arrow {
+    color:var(--sky-deep);
+    font-weight:600;
+    cursor:pointer;
+  }
+  /* Close indicator for expanded card */
+  .explode-card.is-expanded::after {
+    content:"× Click to close";
+    position:absolute;
+    top:14px; left:24px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--sky-deep);
+    font-weight:600;
+  }
+  /* Pulse highlight when arrived from a hotspot */
+  @keyframes arrivedGlow {
+    0% {
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 0 0 3px var(--gold),
+        0 0 0 12px rgba(201,169,97,0.4),
+        0 30px 70px rgba(0,0,0,0.50);
+    }
+    100% {
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 0 0 2px var(--sky-deep),
+        0 30px 70px rgba(0,0,0,0.50),
+        0 14px 24px rgba(0,0,0,0.22);
+    }
+  }
+  .explode-card.is-arrived {
+    animation:arrivedGlow 2.5s ease-out;
+  }
+  .explode-card::after {
+    content:""; position:absolute; top:-8px; left:50%;
+    transform:translateX(-50%);
+    width:1px; height:16px;
+    background:rgba(22,27,39,0.2);
+  }
+  .explode-card-num {
+    font-family:var(--mono); font-size:10px;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--ink-soft); margin-top:14px;
+  }
+  .explode-card-icon {
+    width:44px; height:44px;
+    color:var(--sky-deep);
+    margin-top:4px;
+  }
+  .explode-card h3 {
+    font-family:var(--display); font-size:22px;
+    line-height:1.15; letter-spacing:-0.01em;
+    color:var(--ink); font-weight:500;
+    margin-top:auto;
+  }
+  .explode-card h3 em { font-style:italic; color:var(--sky-deep); font-weight:300; }
+  .explode-card p {
+    font-size:13.5px; line-height:1.6; color:var(--ink-mute);
+  }
+  /* Tiny care-symbols at footer of card */
+  .explode-card-symbols {
+    margin-top:10px; padding-top:12px; border-top:1px dashed rgba(22,27,39,0.16);
+    display:flex; gap:10px; align-items:center;
+    font-family:var(--mono); font-size:10px;
+    letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .explode-card-symbols svg { color:var(--ink-mute); }
+  .explode-card-symbols em { color:var(--gold-deep); font-style:normal; }
+
+  /* === ECO === */
+  .eco { padding:clamp(80px,12vh,140px) 0; background:var(--bg); }
+  .eco-grid {
+    display:grid; grid-template-columns:1fr; gap:50px; align-items:center;
+  }
+  @media (min-width:1000px) { .eco-grid { grid-template-columns:1.1fr 1fr; gap:80px; } }
+  .eco-body .eyebrow { margin-bottom:24px; }
+  .eco-body h2 { margin-bottom:24px; }
+  .eco-body h2 em { color:var(--gold-deep); font-style:italic; font-weight:300; }
+  .eco-body p { color:var(--ink-2); font-size:16px; line-height:1.7; margin-bottom:14px; max-width:54ch; }
+  .eco-list { margin-top:32px; display:flex; flex-direction:column; gap:14px; }
+  .eco-item {
+    display:flex; gap:14px; align-items:flex-start;
+    padding:18px 22px; background:var(--paper);
+    border-radius:var(--r-md); border:1px solid var(--line);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .eco-item:hover { transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+  .eco-item-icon {
+    width:32px; height:32px; border-radius:50%;
+    background:var(--sky-pale); color:var(--sky-deep);
+    display:grid; place-items:center; flex-shrink:0;
+  }
+  .eco-item strong { display:block; color:var(--ink); font-size:14.5px; font-weight:600; margin-bottom:2px; }
+  .eco-item span { color:var(--ink-mute); font-size:13.5px; line-height:1.55; }
+
+  /* Eco visual — a glass jar with floating leaves, suggesting eco solvents */
+  .eco-visual {
+    position:relative; aspect-ratio:4/5; max-width:520px; margin:0 auto;
+    overflow:hidden; border-radius:var(--r-lg);
+    background:linear-gradient(180deg,#EAEFF4 0%,#D6E3EC 100%);
+    box-shadow:var(--shadow-md);
+    display:grid; place-items:center;
+  }
+  .eco-visual::after {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.4),transparent 50%);
+  }
+  .eco-badge {
+    position:absolute; top:24px; left:24px; z-index:3;
+    background:rgba(255,255,255,0.94); backdrop-filter:blur(8px);
+    border-radius:99px; padding:8px 14px;
+    font-family:var(--mono); font-size:11px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold-deep); font-weight:500;
+    display:flex; align-items:center; gap:8px;
+    box-shadow:var(--shadow-sm);
+  }
+  .eco-badge::before {
+    content:""; width:8px; height:8px; border-radius:50%;
+    background:var(--sky-deep);
+  }
+  .eco-bottle {
+    width:46%; height:auto;
+    will-change:transform;
+    filter:drop-shadow(0 24px 36px rgba(22,27,39,0.18));
+    position:relative; z-index:2;
+  }
+  .eco-leaf {
+    position:absolute;
+    color:var(--sky-deep);
+    opacity:0.85;
+    will-change:transform;
+  }
+  .eco-leaf.l1 { top:14%; left:8%; width:36px; transform:rotate(-22deg); }
+  .eco-leaf.l2 { bottom:18%; right:10%; width:42px; transform:rotate(34deg); }
+  .eco-leaf.l3 { top:32%; right:14%; width:28px; transform:rotate(110deg); opacity:0.6; }
+  .eco-leaf.l4 { bottom:34%; left:14%; width:30px; transform:rotate(-78deg); opacity:0.5; }
+
+  /* === PICKUP & DELIVERY (process) === */
+  .pickup {
+    padding:clamp(80px,12vh,140px) 0;
+    background:var(--bg-2);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .pickup-head { display:grid; grid-template-columns:1fr; gap:24px; margin-bottom:60px; align-items:end; }
+  @media (min-width:900px) { .pickup-head { grid-template-columns:1.2fr 1fr; gap:80px; } }
+  .pickup-head h2 em { color:var(--sky-deep); font-style:italic; font-weight:300; }
+  .pickup-head p { color:var(--ink-mute); font-size:16px; line-height:1.65; max-width:48ch; }
+
+  .pickup-flow {
+    display:grid; gap:18px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:700px) { .pickup-flow { grid-template-columns:repeat(4, 1fr); gap:14px; } }
+  .step {
+    background:var(--paper);
+    border-radius:var(--r-md);
+    padding:32px 26px;
+    display:flex; flex-direction:column; gap:12px;
+    border:1px solid var(--line);
+    transition:transform .35s,box-shadow .35s;
+  }
+  .step:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+  .step-num {
+    font-family:var(--display); font-size:36px;
+    font-style:italic; font-weight:300;
+    color:var(--sky-deep); line-height:1;
+    letter-spacing:-0.02em;
+  }
+  .step h4 {
+    font-family:var(--display); font-size:21px;
+    font-weight:500; line-height:1.2;
+    letter-spacing:-0.005em; color:var(--ink);
+  }
+  .step p { font-size:13.5px; line-height:1.6; color:var(--ink-mute); }
+
+  /* === 3D ROTATING TESTIMONIAL CUBE === */
+  .reviews {
+    background:var(--bg); padding:clamp(100px,14vh,160px) 0;
+    overflow:hidden;
+  }
+  .reviews-grid {
+    display:grid; grid-template-columns:1fr; gap:60px; align-items:center;
+  }
+  @media (min-width:1000px) { .reviews-grid { grid-template-columns:1fr 1fr; gap:80px; } }
+  .reviews-body .eyebrow { margin-bottom:24px; }
+  .reviews-body h2 { margin-bottom:28px; }
+  .reviews-body h2 em { color:var(--gold-deep); font-style:italic; font-weight:300; }
+  .reviews-body p { color:var(--ink-2); font-size:16px; line-height:1.7; margin-bottom:14px; max-width:50ch; }
+
+  .reviews-rating {
+    display:flex; align-items:center; gap:18px;
+    margin-top:32px; padding:20px 22px;
+    background:var(--paper);
+    border-radius:var(--r-md);
+    border:1px solid var(--line);
+    max-width:420px;
+  }
+  .reviews-rating-stars {
+    display:inline-flex; gap:3px;
+    color:var(--gold);
+  }
+  .reviews-rating-num {
+    font-family:var(--display); font-size:28px;
+    font-weight:500; color:var(--ink); letter-spacing:-0.01em;
+    line-height:1;
+  }
+  .reviews-rating-num em { color:var(--gold-deep); font-style:italic; font-weight:300; }
+  .reviews-rating-text { font-size:12px; color:var(--ink-mute); }
+
+  /* Cube */
+  .cube-stage {
+    position:relative;
+    width:100%;
+    aspect-ratio:1;
+    max-width:460px;
+    margin:0 auto;
+    perspective:1600px;
+    perspective-origin:50% 45%;
+  }
+  .cube {
+    position:relative;
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    transform:rotateX(-8deg) rotateY(0deg);
+    will-change:transform;
+    --cube-half:50%;
+  }
+  .cube-face {
+    position:absolute;
+    inset:0;
+    background:var(--paper);
+    border-radius:var(--r-md);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-md);
+    padding:clamp(24px,3vw,40px);
+    display:flex; flex-direction:column; justify-content:space-between;
+    backface-visibility:hidden;
+  }
+  .cube-face-front  { transform:translateZ(var(--cube-half)); }
+  .cube-face-right  { transform:rotateY(90deg) translateZ(var(--cube-half)); }
+  .cube-face-back   { transform:rotateY(180deg) translateZ(var(--cube-half)); }
+  .cube-face-left   { transform:rotateY(-90deg) translateZ(var(--cube-half)); }
+
+  .cube-face-head { display:flex; justify-content:space-between; align-items:center; }
+  .cube-face-stars { display:inline-flex; gap:2px; color:var(--gold); }
+  .cube-face-num { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); }
+  .cube-face blockquote {
+    font-family:var(--display); font-size:clamp(18px,2vw,24px);
+    font-weight:400; font-style:italic; line-height:1.35;
+    letter-spacing:-0.005em; color:var(--ink);
+    margin:24px 0;
+  }
+  .cube-face blockquote::before { content:"“ "; color:var(--gold); font-weight:500; }
+  .cube-face blockquote::after { content:"”"; color:var(--gold); font-weight:500; }
+  .cube-face-cite {
+    display:flex; flex-direction:column; gap:4px;
+    font-family:var(--body); font-size:13.5px;
+    color:var(--ink-mute);
+  }
+  .cube-face-cite strong { color:var(--ink); font-size:14px; font-weight:600; }
+
+  /* Cube counter */
+  .cube-counter {
+    margin-top:30px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    font-family:var(--mono); font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--ink-mute);
+  }
+  .cube-counter .now { color:var(--gold-deep); font-size:13px; }
+  .cube-counter .bar { width:120px; height:1px; background:var(--line-strong); position:relative; overflow:hidden; }
+  .cube-counter .bar-fill { position:absolute; top:0; left:0; height:100%; background:var(--gold); width:0%; will-change:width; }
+
+  /* Mobile fallback for cube: stack flat */
+  @media (max-width:700px) {
+    .cube-stage { perspective:none; max-width:none; aspect-ratio:auto; }
+    .cube { transform:none !important; height:auto; display:flex; flex-direction:column; gap:14px; }
+    .cube-face { position:relative; inset:auto; transform:none !important; }
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    padding:clamp(80px,12vh,140px) 0;
+    background:var(--ink); color:var(--bg); text-align:center;
+    position:relative; overflow:hidden;
+  }
+  .cta-banner::before {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(circle at 50% 0%, rgba(122,167,199,0.2) 0%, transparent 50%);
+  }
+  .cta-banner > .wrap { position:relative; z-index:2; }
+  .cta-banner h2 { color:var(--bg); margin-bottom:20px; }
+  .cta-banner h2 em { color:var(--sky-light); font-style:italic; font-weight:300; }
+  .cta-banner p { color:var(--ink-soft); font-size:16px; line-height:1.65; max-width:54ch; margin:0 auto 32px; }
+  .cta-banner-phone {
+    font-family:var(--display); font-size:clamp(36px,5vw,64px);
+    font-weight:400; color:var(--sky-light); letter-spacing:-0.02em;
+    display:inline-block; margin:0 0 24px; transition:color .3s;
+  }
+  .cta-banner-phone:hover { color:var(--bg); }
+  .cta-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; align-items:center; }
+  .cta-banner .btn-primary { background:var(--sky); color:var(--ink); border-color:var(--sky); }
+  .cta-banner .btn-primary:hover { background:var(--bg); color:var(--ink); border-color:var(--bg); }
+  .cta-banner .btn-ghost { background:transparent; color:var(--bg); border-color:var(--line-dark-strong); }
+  .cta-banner .btn-ghost:hover { background:rgba(244,240,230,0.08); border-color:var(--bg); }
+  .cta-meta {
+    margin-top:28px; font-family:var(--mono); font-size:11px;
+    letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft);
+  }
+
+  /* Visit */
+  .visit { padding:clamp(80px,12vh,140px) 0; background:var(--bg); }
+  .visit-grid { display:grid; grid-template-columns:1fr; gap:50px; }
+  @media (min-width:1000px) { .visit-grid { grid-template-columns:1fr 1.3fr; gap:80px; } }
+  .visit-info h2 { margin-bottom:24px; }
+  .visit-info h2 em { color:var(--sky-deep); font-style:italic; font-weight:300; }
+  .visit-info p { color:var(--ink-mute); font-size:15px; line-height:1.65; max-width:42ch; margin-bottom:24px; }
+  .visit-detail-list { margin-top:32px; display:flex; flex-direction:column; gap:14px; }
+  .visit-detail {
+    background:var(--paper); border-radius:var(--r-md);
+    padding:20px 22px; border:1px solid var(--line);
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .visit-detail-icon {
+    width:40px; height:40px; border-radius:10px;
+    background:var(--sky-pale); color:var(--sky-deep);
+    display:grid; place-items:center; flex-shrink:0;
+  }
+  .visit-detail-text { display:flex; flex-direction:column; gap:4px; flex:1; }
+  .visit-detail-label {
+    font-family:var(--mono); font-size:10px; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .visit-detail-value {
+    font-family:var(--body); font-size:14.5px; font-weight:500;
+    color:var(--ink); line-height:1.45;
+  }
+  .visit-detail-value a { transition:color .25s; }
+  .visit-detail-value a:hover { color:var(--sky-deep); }
+
+  .map-frame {
+    border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-md);
+    height:100%; min-height:520px;
+    background:var(--bg-3);
+  }
+  .map-frame iframe { width:100%; height:100%; border:0; display:block; }
+
+  /* Footer */
+  footer { background:var(--ink); padding:60px 0 36px; color:var(--bg); border-top:1px solid var(--line-dark); }
+  .foot-grid {
+    display:grid; grid-template-columns:1fr; gap:40px;
+    margin-bottom:48px; align-items:start;
+  }
+  @media (min-width:800px) { .foot-grid { grid-template-columns:2fr 1fr 1fr 1fr; } }
+  .foot-brand { display:flex; flex-direction:column; gap:18px; }
+  .foot-mark {
+    font-family:var(--display); font-size:clamp(40px,5vw,64px);
+    font-weight:400; line-height:0.95; letter-spacing:-0.03em; color:var(--bg);
+  }
+  .foot-mark em { color:var(--sky-light); font-style:italic; font-weight:300; }
+  .foot-tag { color:var(--ink-soft); font-size:14px; line-height:1.6; max-width:32ch; }
+  .foot-col h5 {
+    font-family:var(--mono); font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--sky-light); margin-bottom:16px; font-weight:500;
+  }
+  .foot-col ul { list-style:none; display:flex; flex-direction:column; gap:9px; }
+  .foot-col a { color:var(--ink-soft); font-size:13.5px; transition:color .25s; }
+  .foot-col a:hover { color:var(--bg); }
+  .foot-bottom {
+    border-top:1px solid var(--line-dark); padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:12px; color:var(--ink-soft);
+  }
+  .foot-bottom a { color:var(--ink-soft); transition:color .25s; }
+  .foot-bottom a:hover { color:var(--bg); }
+
+  @media (prefers-reduced-motion:reduce) {
+    *,*::before,*::after { animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+    .reveal,.reveal-words .word { opacity:1 !important; transform:none !important; }
+    .van-door-left { transform:rotateY(-105deg) !important; }
+    .van-door-right { transform:rotateY(105deg) !important; }
+    .service-item { opacity:1 !important; }
+    .cube { transform:rotateX(-8deg) rotateY(0deg) !important; }
+    .explode-card { transform:none !important; opacity:1 !important; }
+  }
+
+  /* === HOSPITALITY PANEL — Subtle entry-point to the hotel page === */
+  .hospitality-panel {
+    background:var(--ink);
+    color:var(--bg);
+    padding:clamp(64px,9vh,100px) 0;
+    border-top:1px solid rgba(201,169,97,0.18);
+    border-bottom:1px solid rgba(201,169,97,0.18);
+  }
+  .hospitality-inner {
+    display:grid;
+    grid-template-columns:1.8fr 1fr;
+    gap:clamp(32px,5vw,72px);
+    align-items:center;
+  }
+  @media (max-width:799px) {
+    .hospitality-inner { grid-template-columns:1fr; gap:32px; }
+  }
+  .hospitality-eyebrow {
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:24px;
+    display:inline-flex; align-items:center; gap:14px;
+  }
+  .hospitality-eyebrow::before {
+    content:""; width:28px; height:1px; background:var(--gold-light);
+  }
+  .hospitality-title {
+    font-family:var(--display);
+    font-weight:300;
+    font-size:clamp(28px, 4.2vw, 52px);
+    line-height:1.08;
+    letter-spacing:-0.015em;
+    color:var(--bg);
+    margin:0 0 24px;
+  }
+  .hospitality-title em {
+    font-style:italic;
+    color:var(--gold-light);
+    font-weight:400;
+  }
+  .hospitality-sub {
+    font-size:16px;
+    line-height:1.6;
+    color:rgba(245,235,216,0.75);
+    font-weight:300;
+    max-width:58ch;
+    margin:0;
+  }
+  .hospitality-sub em {
+    color:var(--gold-light);
+    font-style:italic;
+    font-weight:400;
+  }
+  .hospitality-cta {
+    display:flex; flex-direction:column;
+    justify-self:end;
+    padding:clamp(28px,3.5vw,42px) clamp(32px,4vw,48px);
+    background:rgba(201,169,97,0.06);
+    border:1px solid rgba(201,169,97,0.30);
+    text-decoration:none;
+    transition:background .4s, border-color .4s, transform .4s;
+    min-width:280px;
+  }
+  .hospitality-cta:hover {
+    background:rgba(201,169,97,0.12);
+    border-color:var(--gold-light);
+    transform:translateY(-3px);
+  }
+  .hospitality-cta-eyebrow {
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.20em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:12px;
+  }
+  .hospitality-cta-text {
+    font-family:var(--display);
+    font-weight:400;
+    font-size:24px;
+    color:var(--bg);
+    line-height:1.1;
+  }
+  @media (max-width:799px) {
+    .hospitality-cta { justify-self:stretch; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Reusable SVG definitions -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Wire hanger — wood-look top bar plus hook -->
+    <!-- ============ VAN & SERVICE ITEM DEFINITIONS ============ -->
+
+    <!-- Tiny empty hanger for interior of van -->
+    <symbol id="tiny-hanger" viewBox="0 0 14 18">
+      <path d="M7 3 Q7 1 8 1 Q9.5 1 9.5 3.5" stroke="#5E6573" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+      <path d="M7 4 L1 14 L13 14 Z" stroke="#5E6573" stroke-width="1" fill="none" stroke-linejoin="round"/>
+      <line x1="1" y1="14" x2="13" y2="14" stroke="#5E6573" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Gradients shared across service items -->
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E6E9EC"/>
+      <stop offset="40%" stop-color="#F8FAFC"/>
+      <stop offset="55%" stop-color="#9CA3AF"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="leather-brown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C4A28"/>
+      <stop offset="50%" stop-color="#9C6638"/>
+      <stop offset="100%" stop-color="#5A3220"/>
+    </linearGradient>
+    <linearGradient id="rug-red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9C2A2A"/>
+      <stop offset="50%" stop-color="#C73A2A"/>
+      <stop offset="100%" stop-color="#7A1E1E"/>
+    </linearGradient>
+    <linearGradient id="drapery-green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1F3729"/>
+      <stop offset="50%" stop-color="#3A6248"/>
+      <stop offset="100%" stop-color="#1F3729"/>
+    </linearGradient>
+    <linearGradient id="towel-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B6D0E1"/>
+      <stop offset="100%" stop-color="#7AA7C7"/>
+    </linearGradient>
+    <linearGradient id="gown-box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCFBF7"/>
+      <stop offset="100%" stop-color="#E4DBC6"/>
+    </linearGradient>
+    <linearGradient id="plastic-wrap" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.65"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Rug end pattern -->
+    <pattern id="rug-pattern" patternUnits="userSpaceOnUse" width="8" height="8">
+      <rect width="8" height="8" fill="#7A1E1E"/>
+      <path d="M0 4 L4 0 L8 4 L4 8 Z" fill="#C9A961" opacity="0.85"/>
+      <circle cx="4" cy="4" r="1" fill="#3A4055"/>
+    </pattern>
+
+    <!-- ① PRESSING — Iron with steam -->
+    <symbol id="svc-iron" viewBox="0 0 110 110">
+      <!-- Steam wisps -->
+      <g opacity="0.75">
+        <path d="M32 28 Q34 22 30 14 Q26 10 28 4" stroke="#B6D0E1" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M52 26 Q54 18 50 10 Q48 6 50 2" stroke="#7AA7C7" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <path d="M72 28 Q74 22 70 14 Q66 10 68 4" stroke="#B6D0E1" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Steam cloud -->
+      <ellipse cx="52" cy="32" rx="22" ry="6" fill="#E6F0F6" opacity="0.7"/>
+
+      <!-- Handle arc -->
+      <path d="M28 52 Q52 26 76 52" stroke="#1A1F2E" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M28 52 Q52 26 76 52" stroke="#3A4055" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <ellipse cx="52" cy="32" rx="18" ry="3.5" fill="#3A4055"/>
+
+      <!-- Iron body -->
+      <path d="M14 76 L20 52 L84 52 L92 76 L88 86 L18 86 Z" fill="url(#chrome)" stroke="#3A4055" stroke-width="1.5"/>
+      <!-- Iron top deck -->
+      <ellipse cx="53" cy="54" rx="30" ry="4" fill="#5E6573"/>
+      <ellipse cx="53" cy="54" rx="30" ry="3" fill="#3A4055"/>
+      <!-- Indicator light -->
+      <circle cx="72" cy="64" r="3" fill="#C9A961"/>
+      <circle cx="72" cy="64" r="4.5" fill="#C9A961" opacity="0.35"/>
+      <!-- Temperature dial -->
+      <circle cx="32" cy="64" r="4" fill="#1A1F2E" stroke="#3A4055" stroke-width="0.8"/>
+      <line x1="32" y1="64" x2="32" y2="60" stroke="#C9A961" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- Soleplate -->
+      <rect x="18" y="82" width="72" height="6" fill="#1A1F2E" rx="1"/>
+      <!-- Steam holes -->
+      <g fill="#5E6573">
+        <circle cx="28" cy="85" r="1"/><circle cx="36" cy="85" r="1"/>
+        <circle cx="44" cy="85" r="1"/><circle cx="52" cy="85" r="1"/>
+        <circle cx="60" cy="85" r="1"/><circle cx="68" cy="85" r="1"/>
+        <circle cx="76" cy="85" r="1"/><circle cx="84" cy="85" r="1"/>
+      </g>
+      <!-- Chrome highlight on body -->
+      <path d="M22 56 L18 74 L22 76" stroke="#FCFBF7" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- ② DRY CLEANING — Shirt in plastic wrap -->
+    <symbol id="svc-wrap" viewBox="0 0 110 110">
+      <!-- Hanger -->
+      <path d="M55 8 Q55 4 58 4 Q62 4 62 9" stroke="#3A4055" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M55 12 L20 32 L90 32 Z" stroke="#3A4055" stroke-width="2" fill="none" stroke-linejoin="round"/>
+      <rect x="20" y="30" width="70" height="4" rx="1" fill="#8E7530"/>
+      <!-- Shirt underneath (white) -->
+      <path d="M26 32 L18 42 L24 56 L28 50 L28 96 L82 96 L82 50 L86 56 L92 42 L84 32 L70 36 Q55 50 40 36 Z" fill="#FCFBF7" stroke="#3A4055" stroke-width="1"/>
+      <!-- Collar -->
+      <path d="M40 36 L55 50 L70 36 L66 32 L55 44 L44 32 Z" fill="#E8E0CB" stroke="#3A4055" stroke-width="0.7"/>
+      <!-- Placket and buttons -->
+      <line x1="55" y1="50" x2="55" y2="94" stroke="#3A4055" stroke-width="0.5" opacity="0.5"/>
+      <circle cx="55" cy="60" r="1.2" fill="#C9A961"/>
+      <circle cx="55" cy="72" r="1.2" fill="#C9A961"/>
+      <circle cx="55" cy="84" r="1.2" fill="#C9A961"/>
+      <!-- Plastic wrap overlay -->
+      <path d="M22 30 L14 100 L96 100 L88 30 Z" fill="url(#plastic-wrap)" opacity="0.7"/>
+      <!-- Plastic wrap edges -->
+      <path d="M22 30 L14 100" stroke="#FCFBF7" stroke-width="1" opacity="0.85"/>
+      <path d="M88 30 L96 100" stroke="#FCFBF7" stroke-width="1" opacity="0.85"/>
+      <!-- Tape strip -->
+      <rect x="42" y="98" width="26" height="6" fill="#FCFBF7" stroke="#3A4055" stroke-width="0.4" opacity="0.85"/>
+      <text x="55" y="103" text-anchor="middle" font-family="ui-monospace,monospace" font-size="3.5" fill="#3A4055" letter-spacing="0.3">PICO 4019</text>
+      <!-- Shimmer highlight -->
+      <path d="M34 38 L26 96" stroke="#FFFFFF" stroke-width="1.8" opacity="0.5" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- ③ ALTERATIONS — Sewing kit (thread spool, needle, tape) -->
+    <symbol id="svc-sewing" viewBox="0 0 110 110">
+      <!-- Measuring tape (coiled at back, with extending strip) -->
+      <ellipse cx="56" cy="74" rx="34" ry="10" fill="#E4DBC6" stroke="#8E7530" stroke-width="1"/>
+      <ellipse cx="56" cy="72" rx="34" ry="10" fill="#FCFBF7" stroke="#8E7530" stroke-width="1"/>
+      <!-- Tape edge tick marks -->
+      <g stroke="#3A4055" stroke-width="0.5">
+        <line x1="28" y1="68" x2="28" y2="72"/>
+        <line x1="36" y1="68" x2="36" y2="72"/>
+        <line x1="44" y1="68" x2="44" y2="72"/>
+        <line x1="52" y1="68" x2="52" y2="72"/>
+        <line x1="60" y1="68" x2="60" y2="72"/>
+        <line x1="68" y1="68" x2="68" y2="72"/>
+        <line x1="76" y1="68" x2="76" y2="72"/>
+        <line x1="84" y1="68" x2="84" y2="72"/>
+      </g>
+      <!-- Numbers on tape -->
+      <g font-family="ui-monospace,monospace" font-size="4" fill="#3A4055">
+        <text x="36" y="79" text-anchor="middle">10</text>
+        <text x="52" y="79" text-anchor="middle">20</text>
+        <text x="68" y="79" text-anchor="middle">30</text>
+        <text x="84" y="79" text-anchor="middle">40</text>
+      </g>
+      <!-- Tape extending out -->
+      <path d="M22 70 L8 84 L10 92 L24 78" fill="#FCFBF7" stroke="#8E7530" stroke-width="0.7"/>
+
+      <!-- Thread spool (front, tilted) -->
+      <ellipse cx="36" cy="36" rx="14" ry="4" fill="#8E7530"/>
+      <rect x="22" y="36" width="28" height="22" fill="#C9A961" stroke="#8E7530" stroke-width="0.8"/>
+      <!-- Thread wrapped around spool -->
+      <g stroke="#7A1E1E" stroke-width="0.6" opacity="0.85">
+        <line x1="23" y1="40" x2="49" y2="38"/>
+        <line x1="23" y1="44" x2="49" y2="42"/>
+        <line x1="23" y1="48" x2="49" y2="46"/>
+        <line x1="23" y1="52" x2="49" y2="50"/>
+        <line x1="23" y1="56" x2="49" y2="54"/>
+      </g>
+      <ellipse cx="36" cy="58" rx="14" ry="4" fill="#8E7530" stroke="#5A4A1F" stroke-width="0.6"/>
+
+      <!-- Loose thread going from spool to needle -->
+      <path d="M50 42 Q70 30 86 26" stroke="#C73A2A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+      <!-- Needle (top right) -->
+      <line x1="64" y1="22" x2="92" y2="14" stroke="#C0C5CC" stroke-width="2" stroke-linecap="round"/>
+      <line x1="65" y1="22" x2="91" y2="15" stroke="#FCFBF7" stroke-width="0.6" stroke-linecap="round" opacity="0.7"/>
+      <!-- Needle eye -->
+      <circle cx="66" cy="22" r="2.4" fill="none" stroke="#3A4055" stroke-width="0.8"/>
+      <circle cx="66" cy="22" r="1.2" fill="#0B0E16"/>
+      <!-- Needle point -->
+      <path d="M91 15 L94 12 L94 14 Z" fill="#3A4055"/>
+
+      <!-- Thimble (bottom left) -->
+      <path d="M84 88 L80 100 L92 100 L88 88 Z" fill="url(#chrome)" stroke="#3A4055" stroke-width="0.8"/>
+      <g fill="#3A4055" opacity="0.6">
+        <circle cx="82" cy="92" r="0.6"/><circle cx="86" cy="91" r="0.6"/><circle cx="89" cy="92" r="0.6"/>
+        <circle cx="84" cy="95" r="0.6"/><circle cx="88" cy="95" r="0.6"/>
+        <circle cx="83" cy="98" r="0.6"/><circle cx="87" cy="98" r="0.6"/>
+      </g>
+    </symbol>
+
+    <!-- ④ WEDDING GOWN — Preservation box -->
+    <symbol id="svc-gown-box" viewBox="0 0 110 110">
+      <!-- Box base -->
+      <path d="M14 32 L96 32 L92 96 L18 96 Z" fill="url(#gown-box)" stroke="#8E7530" stroke-width="1.2"/>
+      <!-- Box side highlight -->
+      <path d="M14 32 L18 96 L18 38 L96 38 L96 32 Z" fill="#D9D0BB" opacity="0.4"/>
+      <!-- Viewing window (clear panel) -->
+      <rect x="26" y="42" width="58" height="42" fill="#E6EEF4" stroke="#8E7530" stroke-width="0.8" rx="1"/>
+      <rect x="26" y="42" width="58" height="42" fill="url(#plastic-wrap)" opacity="0.6"/>
+      <!-- Window highlight -->
+      <path d="M28 44 L82 44 L82 50 L28 50 Z" fill="#FFFFFF" opacity="0.4"/>
+      <!-- Gown visible through window -->
+      <path d="M44 50 L42 58 L36 80 L74 80 L68 58 L66 50 L62 53 Q55 58 48 53 Z" fill="#FCFBF7" stroke="#B5AC9A" stroke-width="0.5"/>
+      <!-- Gown veil/details -->
+      <path d="M48 53 Q55 56 62 53" stroke="#C9A961" stroke-width="0.6" fill="none"/>
+      <circle cx="55" cy="58" r="0.6" fill="#C9A961"/>
+      <circle cx="51" cy="62" r="0.5" fill="#C9A961"/>
+      <circle cx="59" cy="62" r="0.5" fill="#C9A961"/>
+      <!-- Drape folds -->
+      <line x1="44" y1="68" x2="42" y2="80" stroke="#B5AC9A" stroke-width="0.4"/>
+      <line x1="55" y1="65" x2="55" y2="80" stroke="#B5AC9A" stroke-width="0.4"/>
+      <line x1="66" y1="68" x2="68" y2="80" stroke="#B5AC9A" stroke-width="0.4"/>
+      <!-- Ribbon across the box -->
+      <rect x="48" y="32" width="14" height="64" fill="#C9A961" opacity="0.9"/>
+      <!-- Ribbon shadow stripes -->
+      <line x1="48" y1="32" x2="48" y2="96" stroke="#8E7530" stroke-width="0.6"/>
+      <line x1="62" y1="32" x2="62" y2="96" stroke="#8E7530" stroke-width="0.6"/>
+      <!-- Bow on top of box -->
+      <path d="M40 24 L52 32 L40 28 Z" fill="#C9A961" stroke="#8E7530" stroke-width="0.6"/>
+      <path d="M70 24 L58 32 L70 28 Z" fill="#C9A961" stroke="#8E7530" stroke-width="0.6"/>
+      <rect x="50" y="26" width="10" height="8" fill="#8E7530" rx="0.5"/>
+      <!-- Embossed label -->
+      <rect x="76" y="86" width="14" height="7" fill="none" stroke="#8E7530" stroke-width="0.5" rx="1"/>
+      <text x="83" y="91" text-anchor="middle" font-family="serif" font-style="italic" font-size="4.5" fill="#8E7530">Pico</text>
+    </symbol>
+
+    <!-- ⑤ FLUFF &amp; FOLD — Stack of folded laundry tied with twine -->
+    <symbol id="svc-fold" viewBox="0 0 110 110">
+      <!-- Stack of 4 folded items, each slightly offset for stack depth -->
+      <!-- Bottom (towel - blue) -->
+      <rect x="14" y="68" width="82" height="22" rx="1.5" fill="url(#towel-blue)" stroke="#5A8074" stroke-width="0.8"/>
+      <rect x="14" y="68" width="82" height="3" fill="#FFFFFF" opacity="0.35"/>
+      <line x1="14" y1="79" x2="96" y2="79" stroke="#5A8074" stroke-width="0.5" opacity="0.5"/>
+      <line x1="14" y1="85" x2="96" y2="85" stroke="#5A8074" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Layer 3 (towel - cream) -->
+      <rect x="17" y="52" width="78" height="18" rx="1.5" fill="#E4DBC6" stroke="#8E7530" stroke-width="0.8"/>
+      <rect x="17" y="52" width="78" height="3" fill="#FCFBF7" opacity="0.5"/>
+      <line x1="17" y1="62" x2="95" y2="62" stroke="#8E7530" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Layer 2 (shirt - white) -->
+      <rect x="20" y="38" width="72" height="16" rx="1.5" fill="#FCFBF7" stroke="#B5AC9A" stroke-width="0.8"/>
+      <rect x="20" y="38" width="72" height="3" fill="#FFFFFF" opacity="0.85"/>
+      <line x1="20" y1="46" x2="92" y2="46" stroke="#B5AC9A" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Top (towel - blue) -->
+      <rect x="22" y="26" width="68" height="14" rx="1.5" fill="url(#towel-blue)" stroke="#5A8074" stroke-width="0.8"/>
+      <rect x="22" y="26" width="68" height="2.5" fill="#FFFFFF" opacity="0.35"/>
+      <line x1="22" y1="33" x2="90" y2="33" stroke="#5A8074" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Twine wrap (vertical strands) -->
+      <line x1="40" y1="24" x2="40" y2="92" stroke="#8E7530" stroke-width="1.6"/>
+      <line x1="40" y1="24" x2="40" y2="92" stroke="#C9A961" stroke-width="0.6"/>
+      <line x1="72" y1="24" x2="72" y2="92" stroke="#8E7530" stroke-width="1.6"/>
+      <line x1="72" y1="24" x2="72" y2="92" stroke="#C9A961" stroke-width="0.6"/>
+
+      <!-- Bow on top -->
+      <path d="M50 16 Q56 22 56 24 Q56 22 62 16 L62 22 L56 26 L50 22 Z" fill="#8E7530" stroke="#5A4A1F" stroke-width="0.5"/>
+      <circle cx="56" cy="24" r="1.5" fill="#5A4A1F"/>
+      <!-- Bow strings hanging -->
+      <line x1="54" y1="24" x2="48" y2="34" stroke="#8E7530" stroke-width="1"/>
+      <line x1="58" y1="24" x2="64" y2="34" stroke="#8E7530" stroke-width="1"/>
+
+      <!-- Tag attached -->
+      <line x1="72" y1="56" x2="82" y2="62" stroke="#8E7530" stroke-width="0.6"/>
+      <rect x="80" y="60" width="12" height="9" rx="0.8" fill="#FCFBF7" stroke="#8E7530" stroke-width="0.6" transform="rotate(8 86 64)"/>
+      <text x="86" y="66" text-anchor="middle" font-family="ui-monospace,monospace" font-size="3" fill="#3A4055" transform="rotate(8 86 64)">F&amp;F</text>
+    </symbol>
+
+    <!-- ⑥ DRAPERY — Hanging curtain panel with tassels -->
+    <symbol id="icon-svc-drapery" viewBox="0 0 110 110">
+      <!-- Curtain rod -->
+      <rect x="14" y="14" width="82" height="4" fill="#5A4A1F" rx="1"/>
+      <circle cx="16" cy="16" r="4" fill="#C9A961" stroke="#5A4A1F" stroke-width="0.8"/>
+      <circle cx="94" cy="16" r="4" fill="#C9A961" stroke="#5A4A1F" stroke-width="0.8"/>
+      <!-- Curtain rings -->
+      <g stroke="#5A4A1F" stroke-width="1" fill="none">
+        <circle cx="26" cy="18" r="3"/>
+        <circle cx="40" cy="18" r="3"/>
+        <circle cx="54" cy="18" r="3"/>
+        <circle cx="68" cy="18" r="3"/>
+        <circle cx="82" cy="18" r="3"/>
+      </g>
+      <!-- Drape panel (rich green silk) -->
+      <path d="M22 21 L20 96 L88 96 L86 21 Z" fill="url(#drapery-green)" stroke="#1F3729" stroke-width="0.8"/>
+      <!-- Pleats / drape folds -->
+      <g stroke="#1F3729" stroke-width="0.7" opacity="0.55" fill="none">
+        <path d="M32 22 Q30 50 30 96"/>
+        <path d="M44 22 Q42 50 42 96"/>
+        <path d="M54 22 Q52 50 52 96"/>
+        <path d="M66 22 Q64 50 64 96"/>
+        <path d="M78 22 Q76 50 76 96"/>
+      </g>
+      <!-- Highlight pleats -->
+      <g stroke="#5A8074" stroke-width="0.5" opacity="0.4">
+        <path d="M38 24 Q36 50 38 96" fill="none"/>
+        <path d="M60 24 Q58 50 60 96" fill="none"/>
+      </g>
+      <!-- Bottom hem -->
+      <line x1="20" y1="94" x2="88" y2="94" stroke="#1F3729" stroke-width="1"/>
+      <!-- Tieback in the middle -->
+      <path d="M16 60 L20 56 L88 56 L92 60 L88 64 L20 64 Z" fill="#C9A961" stroke="#8E7530" stroke-width="0.7"/>
+      <line x1="20" y1="60" x2="88" y2="60" stroke="#8E7530" stroke-width="0.4" opacity="0.7"/>
+      <!-- Tassels hanging at the bottom -->
+      <g>
+        <circle cx="34" cy="98" r="2.5" fill="#C9A961" stroke="#8E7530" stroke-width="0.4"/>
+        <line x1="32" y1="100" x2="32" y2="106" stroke="#8E7530" stroke-width="0.5"/>
+        <line x1="34" y1="100" x2="34" y2="107" stroke="#8E7530" stroke-width="0.5"/>
+        <line x1="36" y1="100" x2="36" y2="106" stroke="#8E7530" stroke-width="0.5"/>
+        <circle cx="74" cy="98" r="2.5" fill="#C9A961" stroke="#8E7530" stroke-width="0.4"/>
+        <line x1="72" y1="100" x2="72" y2="106" stroke="#8E7530" stroke-width="0.5"/>
+        <line x1="74" y1="100" x2="74" y2="107" stroke="#8E7530" stroke-width="0.5"/>
+        <line x1="76" y1="100" x2="76" y2="106" stroke="#8E7530" stroke-width="0.5"/>
+      </g>
+    </symbol>
+
+    <!-- ⑦ RUGS — Rolled-up oriental rug -->
+    <symbol id="svc-rug" viewBox="0 0 110 110">
+      <!-- Ground shadow -->
+      <ellipse cx="55" cy="98" rx="40" ry="4" fill="#1A1F2E" opacity="0.18"/>
+
+      <!-- Rolled rug body (horizontal cylinder, viewed from slightly above) -->
+      <rect x="10" y="40" width="90" height="46" rx="22" fill="url(#rug-red)" stroke="#5A1010" stroke-width="1.2"/>
+
+      <!-- Wrapping highlights (showing the rug is rolled, with subtle ridges) -->
+      <g stroke="#5A1010" stroke-width="0.6" opacity="0.65" fill="none">
+        <path d="M14 50 Q55 53 96 50"/>
+        <path d="M14 60 Q55 63 96 60"/>
+        <path d="M14 70 Q55 73 96 70"/>
+        <path d="M14 80 Q55 77 96 80"/>
+      </g>
+      <!-- Top highlight -->
+      <path d="M14 46 Q55 50 96 46" stroke="#E89B7A" stroke-width="1.4" fill="none" opacity="0.55"/>
+
+      <!-- LEFT END (circular end showing pattern) -->
+      <ellipse cx="10" cy="63" rx="6" ry="22" fill="url(#rug-pattern)" stroke="#5A1010" stroke-width="1.2"/>
+      <!-- Center medallion -->
+      <ellipse cx="10" cy="63" rx="3" ry="10" fill="#C9A961" stroke="#5A1010" stroke-width="0.6"/>
+      <ellipse cx="10" cy="63" rx="1.5" ry="5" fill="#1A1F2E"/>
+      <!-- Fringe -->
+      <g stroke="#E4DBC6" stroke-width="0.8" stroke-linecap="round">
+        <line x1="6" y1="44" x2="2" y2="42"/>
+        <line x1="5" y1="50" x2="0" y2="49"/>
+        <line x1="4" y1="56" x2="-1" y2="56"/>
+        <line x1="4" y1="62" x2="-2" y2="62"/>
+        <line x1="4" y1="68" x2="-1" y2="69"/>
+        <line x1="5" y1="74" x2="0" y2="76"/>
+        <line x1="6" y1="80" x2="2" y2="83"/>
+      </g>
+
+      <!-- RIGHT END (circular end showing pattern) -->
+      <ellipse cx="100" cy="63" rx="6" ry="22" fill="url(#rug-pattern)" stroke="#5A1010" stroke-width="1.2"/>
+      <ellipse cx="100" cy="63" rx="3" ry="10" fill="#C9A961" stroke="#5A1010" stroke-width="0.6"/>
+      <ellipse cx="100" cy="63" rx="1.5" ry="5" fill="#1A1F2E"/>
+      <!-- Fringe right -->
+      <g stroke="#E4DBC6" stroke-width="0.8" stroke-linecap="round">
+        <line x1="104" y1="44" x2="108" y2="42"/>
+        <line x1="105" y1="50" x2="110" y2="49"/>
+        <line x1="106" y1="56" x2="111" y2="56"/>
+        <line x1="106" y1="62" x2="112" y2="62"/>
+        <line x1="106" y1="68" x2="111" y2="69"/>
+        <line x1="105" y1="74" x2="110" y2="76"/>
+        <line x1="104" y1="80" x2="108" y2="83"/>
+      </g>
+
+      <!-- Twine wraps -->
+      <ellipse cx="35" cy="63" rx="3" ry="23" fill="none" stroke="#8E7530" stroke-width="1.4"/>
+      <ellipse cx="35" cy="63" rx="3" ry="23" fill="none" stroke="#C9A961" stroke-width="0.5"/>
+      <ellipse cx="75" cy="63" rx="3" ry="23" fill="none" stroke="#8E7530" stroke-width="1.4"/>
+      <ellipse cx="75" cy="63" rx="3" ry="23" fill="none" stroke="#C9A961" stroke-width="0.5"/>
+    </symbol>
+
+    <!-- ⑧ LEATHER &amp; SUEDE — Leather jacket on hanger -->
+    <symbol id="icon-svc-leather" viewBox="0 0 110 110">
+      <!-- Hanger -->
+      <path d="M55 6 Q55 2 58 2 Q62 2 62 7" stroke="#3A4055" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M55 10 L22 26 L88 26 Z" stroke="#3A4055" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+      <rect x="22" y="24" width="66" height="4" rx="1" fill="#3A4055"/>
+
+      <!-- Jacket body (leather biker style) -->
+      <path d="M28 26 L20 38 L26 56 L32 50 L30 96 L80 96 L78 50 L84 56 L90 38 L82 26 L70 30 L55 42 L40 30 Z" fill="url(#leather-brown)" stroke="#3D1E10" stroke-width="1.2"/>
+
+      <!-- Asymmetric zipper (diagonal across chest, biker style) -->
+      <path d="M40 30 L70 86" stroke="#C0C5CC" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Zipper teeth -->
+      <g stroke="#3A4055" stroke-width="0.5">
+        <line x1="42" y1="35" x2="44" y2="33"/>
+        <line x1="46" y1="42" x2="48" y2="40"/>
+        <line x1="50" y1="49" x2="52" y2="47"/>
+        <line x1="54" y1="56" x2="56" y2="54"/>
+        <line x1="58" y1="63" x2="60" y2="61"/>
+        <line x1="62" y1="70" x2="64" y2="68"/>
+        <line x1="66" y1="77" x2="68" y2="75"/>
+      </g>
+      <!-- Zipper pull -->
+      <rect x="42" y="32" width="6" height="3" rx="1" fill="#C0C5CC" stroke="#3A4055" stroke-width="0.4"/>
+
+      <!-- Lapels (folded back, showing inner darker leather) -->
+      <path d="M40 30 L55 42 L52 56 L40 36 Z" fill="#5A3220" stroke="#3D1E10" stroke-width="0.7"/>
+      <path d="M70 30 L55 42 L58 56 L70 36 Z" fill="#5A3220" stroke="#3D1E10" stroke-width="0.7"/>
+
+      <!-- Snap buttons on lapels -->
+      <circle cx="44" cy="36" r="1.5" fill="#C0C5CC" stroke="#3A4055" stroke-width="0.3"/>
+      <circle cx="66" cy="36" r="1.5" fill="#C0C5CC" stroke="#3A4055" stroke-width="0.3"/>
+
+      <!-- Side zip pockets -->
+      <line x1="32" y1="64" x2="44" y2="68" stroke="#3D1E10" stroke-width="1.5"/>
+      <line x1="32" y1="64" x2="44" y2="68" stroke="#C0C5CC" stroke-width="0.4"/>
+      <line x1="78" y1="64" x2="66" y2="68" stroke="#3D1E10" stroke-width="1.5"/>
+      <line x1="78" y1="64" x2="66" y2="68" stroke="#C0C5CC" stroke-width="0.4"/>
+
+      <!-- Cuffs with snaps -->
+      <rect x="22" y="40" width="12" height="6" rx="1" fill="#5A3220" stroke="#3D1E10" stroke-width="0.7"/>
+      <circle cx="27" cy="43" r="0.9" fill="#C0C5CC"/>
+      <rect x="76" y="40" width="12" height="6" rx="1" fill="#5A3220" stroke="#3D1E10" stroke-width="0.7"/>
+      <circle cx="83" cy="43" r="0.9" fill="#C0C5CC"/>
+
+      <!-- Waist belt detail -->
+      <rect x="32" y="84" width="46" height="4" fill="#5A3220" stroke="#3D1E10" stroke-width="0.5"/>
+      <rect x="52" y="83" width="8" height="6" fill="#C9A961" stroke="#5A4A1F" stroke-width="0.4"/>
+      <rect x="54" y="84" width="4" height="4" fill="none" stroke="#5A4A1F" stroke-width="0.3"/>
+
+      <!-- Leather highlights/sheen -->
+      <path d="M36 48 Q34 70 32 92" stroke="#B8845C" stroke-width="0.8" fill="none" opacity="0.45"/>
+      <path d="M76 48 Q78 70 80 92" stroke="#B8845C" stroke-width="0.8" fill="none" opacity="0.45"/>
+    </symbol>
+    <!-- Eco bottle -->
+    <symbol id="eco-bottle" viewBox="0 0 100 200">
+      <rect x="42" y="0" width="16" height="22" rx="2" fill="#3A4055"/>
+      <rect x="38" y="20" width="24" height="14" rx="3" fill="#252B3A"/>
+      <path d="M30 34 Q30 50 28 70 L24 200 L76 200 L72 70 Q70 50 70 34 Z" fill="#B6D0E1" opacity="0.85" stroke="#3A4055" stroke-width="1.2"/>
+      <path d="M32 70 L68 70 L65 195 L35 195 Z" fill="#7AA7C7" opacity="0.6"/>
+      <rect x="30" y="110" width="40" height="40" fill="#FCFBF7" opacity="0.9" stroke="#252B3A" stroke-width="0.8"/>
+      <text x="50" y="130" text-anchor="middle" font-family="serif" font-style="italic" font-size="11" fill="#1A1F2E" font-weight="500">Pico</text>
+      <text x="50" y="143" text-anchor="middle" font-family="serif" font-size="6.5" fill="#666C7A" letter-spacing="1">ECO-CLEAN</text>
+      <path d="M40 24 L60 24 L62 32 L38 32 Z" fill="#FCFBF7" opacity="0.3"/>
+    </symbol>
+    <!-- Leaf -->
+    <symbol id="leaf" viewBox="0 0 60 60">
+      <path d="M10 50 Q10 10 50 10 Q50 50 10 50 Z M10 50 Q30 30 50 10" stroke="currentColor" stroke-width="1.4" fill="currentColor" fill-opacity="0.16" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Star -->
+    <symbol id="star" viewBox="0 0 24 24">
+      <path d="M12 2l2.39 7.36H22l-6.19 4.5L18.2 21 12 16.5 5.8 21l2.39-7.14L2 9.36h7.61z" fill="currentColor"/>
+    </symbol>
+
+    <!-- ============ VAN GRADIENTS ============ -->
+    <linearGradient id="van-body-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCFCFA"/>
+      <stop offset="55%" stop-color="#F0EFEA"/>
+      <stop offset="100%" stop-color="#D8D6CE"/>
+    </linearGradient>
+    <linearGradient id="van-body-side-l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#CFCDC4"/>
+      <stop offset="100%" stop-color="#F0EFEA"/>
+    </linearGradient>
+    <linearGradient id="van-body-side-r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F0EFEA"/>
+      <stop offset="100%" stop-color="#CFCDC4"/>
+    </linearGradient>
+    <!-- Bold blue accent panel (matches site --sky-deep) -->
+    <linearGradient id="van-accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6FA0C2"/>
+      <stop offset="50%" stop-color="#4E83A6"/>
+      <stop offset="100%" stop-color="#3A6688"/>
+    </linearGradient>
+    <linearGradient id="van-bumper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3D424F"/>
+      <stop offset="50%" stop-color="#2A2F3C"/>
+      <stop offset="100%" stop-color="#16191F"/>
+    </linearGradient>
+    <radialGradient id="van-taillight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="60%" stop-color="#C4424A"/>
+      <stop offset="100%" stop-color="#6E1E22"/>
+    </radialGradient>
+    <linearGradient id="van-tire" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2A2A30"/>
+      <stop offset="100%" stop-color="#0B0E14"/>
+    </linearGradient>
+    <radialGradient id="van-hubcap" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4D7DE"/>
+      <stop offset="60%" stop-color="#8A8F9D"/>
+      <stop offset="100%" stop-color="#3A4055"/>
+    </radialGradient>
+    <linearGradient id="van-door-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCFCFA"/>
+      <stop offset="60%" stop-color="#F0EFEA"/>
+      <stop offset="100%" stop-color="#D8D6CE"/>
+    </linearGradient>
+
+    <!-- ============ VAN BODY (rear view; cargo opening is transparent) ============ -->
+    <symbol id="van-body" viewBox="0 0 400 500">
+      <!-- Side mirrors at top corners -->
+      <ellipse cx="14" cy="60" rx="6" ry="11" fill="#2A2F3C" stroke="#0B0E16" stroke-width="0.6"/>
+      <ellipse cx="14" cy="58" rx="3.5" ry="7" fill="#7AA7C7" opacity="0.65"/>
+      <ellipse cx="386" cy="60" rx="6" ry="11" fill="#2A2F3C" stroke="#0B0E16" stroke-width="0.6"/>
+      <ellipse cx="386" cy="58" rx="3.5" ry="7" fill="#7AA7C7" opacity="0.65"/>
+
+      <!-- Antenna -->
+      <rect x="194" y="2" width="6" height="14" rx="2" fill="#3A4055"/>
+      <circle cx="197" cy="0" r="2" fill="#1A1F2E"/>
+
+      <!-- Roof (top horizontal band with slight curve) -->
+      <path d="M 30 18 Q 200 8 370 18 L 376 56 L 24 56 Z" fill="url(#van-body-grad)" stroke="#9CA3AF" stroke-width="0.9"/>
+      <!-- Roof highlight reflection -->
+      <path d="M 60 22 Q 200 14 340 22 L 336 32 L 64 32 Z" fill="#FFFFFF" opacity="0.65"/>
+      <!-- Roof rear edge seam -->
+      <line x1="24" y1="56" x2="376" y2="56" stroke="#9CA3AF" stroke-width="0.7"/>
+
+      <!-- Left side panel -->
+      <path d="M 24 56 L 30 410 L 80 410 L 80 56 Z" fill="url(#van-body-side-l)" stroke="#9CA3AF" stroke-width="0.6"/>
+      <line x1="80" y1="56" x2="80" y2="410" stroke="#9CA3AF" stroke-width="0.5" opacity="0.6"/>
+      <!-- BIG BLUE ACCENT BAND on left side panel -->
+      <path d="M 27 170 L 28 290 L 80 290 L 80 170 Z" fill="url(#van-accent)" stroke="#1F4A66" stroke-width="0.5"/>
+      <!-- Vertical "Pico Cleaners" on the blue band -->
+      <text x="55" y="230" font-family="serif" font-style="italic" font-size="11" font-weight="600" text-anchor="middle" fill="#FCFCFA" transform="rotate(-90 55 230)">Pico Cleaners</text>
+      <!-- Side panel rivets -->
+      <circle cx="55" cy="100" r="1.2" fill="#9CA3AF"/>
+      <circle cx="55" cy="320" r="1.2" fill="#9CA3AF"/>
+
+      <!-- Right side panel -->
+      <path d="M 320 56 L 320 410 L 370 410 L 376 56 Z" fill="url(#van-body-side-r)" stroke="#9CA3AF" stroke-width="0.6"/>
+      <line x1="320" y1="56" x2="320" y2="410" stroke="#9CA3AF" stroke-width="0.5" opacity="0.6"/>
+      <!-- BIG BLUE ACCENT BAND on right side panel -->
+      <path d="M 320 170 L 320 290 L 373 290 L 372 170 Z" fill="url(#van-accent)" stroke="#1F4A66" stroke-width="0.5"/>
+      <!-- Vertical "Since 1980" on the blue band -->
+      <text x="346" y="230" font-family="ui-monospace, monospace" font-size="7.5" font-weight="600" text-anchor="middle" fill="#FCFCFA" letter-spacing="1.4" transform="rotate(-90 346 230)">SINCE 1980</text>
+      <circle cx="346" cy="100" r="1.2" fill="#9CA3AF"/>
+      <circle cx="346" cy="320" r="1.2" fill="#9CA3AF"/>
+
+      <!-- Top crossbar above cargo opening — BOLD BLUE BRANDING BAND -->
+      <rect x="80" y="56" width="240" height="22" fill="url(#van-accent)" stroke="#1F4A66" stroke-width="0.7"/>
+      <!-- Tiny white logo dot on left -->
+      <circle cx="92" cy="67" r="4" fill="#FCFCFA" stroke="#1F4A66" stroke-width="0.5"/>
+      <path d="M89 68 Q89 64 92 64 Q95 64 95 68 Q92 66 92 69 Q89 67 89 68 Z" fill="#4E83A6"/>
+      <!-- PICO CLEANERS lettering -->
+      <text x="206" y="72" font-family="sans-serif" font-size="12.5" font-weight="900" text-anchor="middle" fill="#FCFCFA" letter-spacing="1.8">PICO CLEANERS</text>
+      <!-- Top highlight on band -->
+      <line x1="80" y1="59" x2="320" y2="59" stroke="#9DC0DA" stroke-width="0.8" opacity="0.7"/>
+      <line x1="80" y1="78" x2="320" y2="78" stroke="#1A3852" stroke-width="0.6"/>
+      <line x1="80" y1="78" x2="320" y2="78" stroke="#9CA3AF" stroke-width="0.6"/>
+      <!-- Center brake light strip on top crossbar -->
+      <rect x="170" y="64" width="60" height="6" rx="1.5" fill="#3D2024" stroke="#0B0E16" stroke-width="0.4"/>
+      <rect x="172" y="65" width="56" height="2" fill="#FF6B6B" opacity="0.7"/>
+
+      <!-- Door frame trim around cargo opening (just outer rectangle, interior visible through) -->
+      <rect x="80" y="78" width="240" height="304" fill="none" stroke="#9CA3AF" stroke-width="1.2"/>
+      <!-- Inner shadow on door frame top -->
+      <rect x="82" y="80" width="236" height="6" fill="#0B0E14" opacity="0.4"/>
+
+      <!-- Bottom panel above bumper -->
+      <rect x="80" y="382" width="240" height="22" fill="url(#van-body-grad)" stroke="#9CA3AF" stroke-width="0.7"/>
+      <line x1="80" y1="382" x2="320" y2="382" stroke="#9CA3AF" stroke-width="0.6"/>
+
+      <!-- Rear bumper -->
+      <rect x="14" y="404" width="372" height="50" rx="2" fill="url(#van-bumper)" stroke="#0B0E16" stroke-width="0.8"/>
+      <!-- Bumper top highlight -->
+      <line x1="14" y1="408" x2="386" y2="408" stroke="#5C636E" stroke-width="0.8" opacity="0.7"/>
+      <!-- Bumper bottom shadow -->
+      <line x1="14" y1="450" x2="386" y2="450" stroke="#000" stroke-width="0.8" opacity="0.7"/>
+      <!-- Step indents on bumper -->
+      <rect x="170" y="416" width="60" height="14" rx="2" fill="#16191F" opacity="0.6"/>
+      <g stroke="#3D424F" stroke-width="0.6">
+        <line x1="180" y1="420" x2="180" y2="426"/>
+        <line x1="190" y1="420" x2="190" y2="426"/>
+        <line x1="200" y1="420" x2="200" y2="426"/>
+        <line x1="210" y1="420" x2="210" y2="426"/>
+        <line x1="220" y1="420" x2="220" y2="426"/>
+      </g>
+
+      <!-- License plate (centered on bumper) -->
+      <rect x="155" y="416" width="90" height="26" rx="3" fill="#F4F0E6" stroke="#1A1F2E" stroke-width="1"/>
+      <rect x="155" y="416" width="90" height="4" fill="#7AA7C7" opacity="0.55"/>
+      <text x="200" y="436" font-family="ui-monospace, monospace" font-size="13" font-weight="700" text-anchor="middle" fill="#1A1F2E" letter-spacing="2.5">PICO 80</text>
+      <text x="200" y="420" font-family="ui-monospace, monospace" font-size="3.5" text-anchor="middle" fill="#1A1F2E" letter-spacing="0.6" opacity="0.7">CALIFORNIA</text>
+
+      <!-- Tail lights (left) -->
+      <rect x="20" y="408" width="48" height="28" rx="3" fill="#3A3A45" stroke="#0B0E16" stroke-width="0.6"/>
+      <rect x="22" y="410" width="44" height="11" rx="2" fill="url(#van-taillight)"/>
+      <rect x="22" y="423" width="44" height="11" rx="2" fill="#E9B544"/>
+      <line x1="22" y1="421" x2="66" y2="421" stroke="#16191F" stroke-width="0.7"/>
+      <!-- Reverse light (small white at bottom of cluster) -->
+      <rect x="22" y="431" width="44" height="3" fill="#FCFBF7" opacity="0.85"/>
+
+      <!-- Tail lights (right) -->
+      <rect x="332" y="408" width="48" height="28" rx="3" fill="#3A3A45" stroke="#0B0E16" stroke-width="0.6"/>
+      <rect x="334" y="410" width="44" height="11" rx="2" fill="url(#van-taillight)"/>
+      <rect x="334" y="423" width="44" height="11" rx="2" fill="#E9B544"/>
+      <line x1="334" y1="421" x2="378" y2="421" stroke="#16191F" stroke-width="0.7"/>
+      <rect x="334" y="431" width="44" height="3" fill="#FCFBF7" opacity="0.85"/>
+
+      <!-- Reflectors -->
+      <ellipse cx="110" cy="432" rx="6" ry="3" fill="#E36" opacity="0.7"/>
+      <ellipse cx="290" cy="432" rx="6" ry="3" fill="#E36" opacity="0.7"/>
+
+      <!-- Wheels: left -->
+      <g>
+        <circle cx="65" cy="465" r="38" fill="url(#van-tire)" stroke="#000" stroke-width="1"/>
+        <circle cx="65" cy="465" r="28" fill="#080A10"/>
+        <circle cx="65" cy="465" r="18" fill="url(#van-hubcap)" stroke="#3A4055" stroke-width="0.7"/>
+        <circle cx="65" cy="465" r="4" fill="#1A1F2E"/>
+        <!-- 5-spoke hubcap detail -->
+        <g stroke="#3A4055" stroke-width="1.6" stroke-linecap="round">
+          <line x1="65" y1="449" x2="65" y2="457"/>
+          <line x1="78" y1="457" x2="73" y2="462"/>
+          <line x1="74" y1="476" x2="69" y2="471"/>
+          <line x1="56" y1="476" x2="61" y2="471"/>
+          <line x1="52" y1="457" x2="57" y2="462"/>
+        </g>
+        <!-- Tire treads -->
+        <g stroke="#3D424F" stroke-width="0.7" fill="none" opacity="0.75">
+          <line x1="40" y1="445" x2="46" y2="452"/>
+          <line x1="90" y1="445" x2="84" y2="452"/>
+          <line x1="40" y1="485" x2="46" y2="478"/>
+          <line x1="90" y1="485" x2="84" y2="478"/>
+          <line x1="30" y1="465" x2="38" y2="465"/>
+          <line x1="92" y1="465" x2="100" y2="465"/>
+        </g>
+      </g>
+      <!-- Wheels: right -->
+      <g>
+        <circle cx="335" cy="465" r="38" fill="url(#van-tire)" stroke="#000" stroke-width="1"/>
+        <circle cx="335" cy="465" r="28" fill="#080A10"/>
+        <circle cx="335" cy="465" r="18" fill="url(#van-hubcap)" stroke="#3A4055" stroke-width="0.7"/>
+        <circle cx="335" cy="465" r="4" fill="#1A1F2E"/>
+        <g stroke="#3A4055" stroke-width="1.6" stroke-linecap="round">
+          <line x1="335" y1="449" x2="335" y2="457"/>
+          <line x1="348" y1="457" x2="343" y2="462"/>
+          <line x1="344" y1="476" x2="339" y2="471"/>
+          <line x1="326" y1="476" x2="331" y2="471"/>
+          <line x1="322" y1="457" x2="327" y2="462"/>
+        </g>
+        <g stroke="#3D424F" stroke-width="0.7" fill="none" opacity="0.75">
+          <line x1="310" y1="445" x2="316" y2="452"/>
+          <line x1="360" y1="445" x2="354" y2="452"/>
+          <line x1="310" y1="485" x2="316" y2="478"/>
+          <line x1="360" y1="485" x2="354" y2="478"/>
+          <line x1="300" y1="465" x2="308" y2="465"/>
+          <line x1="362" y1="465" x2="370" y2="465"/>
+        </g>
+      </g>
+
+      <!-- Dust/weathering near bumper bottom -->
+      <ellipse cx="200" cy="448" rx="80" ry="2" fill="#3A4055" opacity="0.18"/>
+
+      <!-- Subtle body shine highlights -->
+      <line x1="50" y1="80" x2="50" y2="380" stroke="#FFF6D5" stroke-width="1" opacity="0.4"/>
+      <line x1="350" y1="80" x2="350" y2="380" stroke="#FFF6D5" stroke-width="1" opacity="0.4"/>
+    </symbol>
+
+    <!-- LEFT DOOR — viewBox 120 x 280 -->
+    <symbol id="van-door-left" viewBox="0 0 120 280">
+      <!-- Door body -->
+      <rect x="0" y="0" width="120" height="280" fill="url(#van-door-grad)" stroke="#9CA3AF" stroke-width="0.9"/>
+      <!-- Inner panel groove -->
+      <rect x="6" y="6" width="108" height="268" fill="none" stroke="#9CA3AF" stroke-width="0.5" opacity="0.55"/>
+      <!-- Subtle horizontal panel division -->
+      <line x1="10" y1="148" x2="110" y2="148" stroke="#9CA3AF" stroke-width="0.4" opacity="0.5"/>
+
+      <!-- Tinted window at top -->
+      <rect x="12" y="14" width="96" height="42" rx="2" fill="#1A2A3A" stroke="#9CA3AF" stroke-width="0.8"/>
+      <rect x="14" y="16" width="40" height="14" rx="1" fill="#7AA7C7" opacity="0.45"/>
+      <rect x="16" y="32" width="20" height="6" rx="1" fill="#7AA7C7" opacity="0.25"/>
+
+      <!-- "Pico" branding -->
+      <text x="60" y="100" font-family="serif" font-style="italic" font-size="32" font-weight="500" text-anchor="middle" fill="#1F3729" letter-spacing="-0.5">Pico</text>
+      <line x1="22" y1="110" x2="98" y2="110" stroke="#1F3729" stroke-width="1.4"/>
+      <text x="60" y="126" font-family="ui-monospace, monospace" font-size="6" font-weight="500" text-anchor="middle" fill="#3A4055" letter-spacing="1.6">CLEANERS</text>
+
+      <!-- Eco badge -->
+      <circle cx="60" cy="160" r="14" fill="none" stroke="#1F3729" stroke-width="1.3"/>
+      <path d="M52 164 Q52 154 62 154 Q62 164 52 164 Z M52 164 Q58 160 62 154" stroke="#1F3729" stroke-width="1.1" fill="#1F3729" fill-opacity="0.25" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="60" y="186" font-family="ui-monospace, monospace" font-size="5" font-weight="500" text-anchor="middle" fill="#1F3729" letter-spacing="1.2">ECO · CERT</text>
+
+      <!-- Phone number -->
+      <text x="60" y="220" font-family="ui-monospace, monospace" font-size="8" font-weight="600" text-anchor="middle" fill="#1A1F2E" letter-spacing="0.8">(310) 274-2431</text>
+      <text x="60" y="234" font-family="ui-monospace, monospace" font-size="5" text-anchor="middle" fill="#666C7A" letter-spacing="1.2">FREE PICKUP</text>
+
+      <!-- Door handle (vertical, near right edge) -->
+      <rect x="106" y="138" width="6" height="36" rx="2" fill="#3A4055" stroke="#0B0E16" stroke-width="0.4"/>
+      <circle cx="109" cy="146" r="1" fill="#16191F"/>
+      <circle cx="109" cy="160" r="1.8" fill="#16191F"/>
+      <rect x="108.4" y="160" width="1.2" height="3" fill="#16191F"/>
+
+      <!-- Hinges on left edge -->
+      <rect x="0" y="40" width="4" height="14" fill="#3A4055" stroke="#0B0E16" stroke-width="0.3"/>
+      <rect x="0" y="140" width="4" height="14" fill="#3A4055" stroke="#0B0E16" stroke-width="0.3"/>
+      <rect x="0" y="240" width="4" height="14" fill="#3A4055" stroke="#0B0E16" stroke-width="0.3"/>
+
+      <!-- Sheen -->
+      <rect x="12" y="62" width="14" height="200" fill="#FFF6D5" opacity="0.12"/>
+    </symbol>
+
+    <!-- RIGHT DOOR — viewBox 120 x 280 -->
+    <symbol id="van-door-right" viewBox="0 0 120 280">
+      <rect x="0" y="0" width="120" height="280" fill="url(#van-door-grad)" stroke="#9CA3AF" stroke-width="0.9"/>
+      <rect x="6" y="6" width="108" height="268" fill="none" stroke="#9CA3AF" stroke-width="0.5" opacity="0.55"/>
+      <line x1="10" y1="148" x2="110" y2="148" stroke="#9CA3AF" stroke-width="0.4" opacity="0.5"/>
+
+      <!-- Tinted window -->
+      <rect x="12" y="14" width="96" height="42" rx="2" fill="#1A2A3A" stroke="#9CA3AF" stroke-width="0.8"/>
+      <rect x="14" y="16" width="40" height="14" rx="1" fill="#7AA7C7" opacity="0.45"/>
+      <rect x="16" y="32" width="20" height="6" rx="1" fill="#7AA7C7" opacity="0.25"/>
+
+      <!-- "Cleaners" branding -->
+      <text x="60" y="100" font-family="serif" font-style="italic" font-size="22" font-weight="500" text-anchor="middle" fill="#1F3729" letter-spacing="-0.3">Cleaners</text>
+      <line x1="14" y1="110" x2="106" y2="110" stroke="#1F3729" stroke-width="1.4"/>
+      <text x="60" y="126" font-family="ui-monospace, monospace" font-size="6" font-weight="500" text-anchor="middle" fill="#3A4055" letter-spacing="1.6">SINCE 1980</text>
+
+      <!-- Address block -->
+      <text x="60" y="160" font-family="serif" font-size="8" font-style="italic" text-anchor="middle" fill="#1A1F2E" letter-spacing="0.3">9150 W. Pico Blvd.</text>
+      <text x="60" y="174" font-family="ui-monospace, monospace" font-size="6" text-anchor="middle" fill="#666C7A" letter-spacing="1">WEST LOS ANGELES</text>
+
+      <!-- Star rating -->
+      <text x="60" y="200" font-family="ui-monospace, monospace" font-size="7" text-anchor="middle" fill="#C9A961" letter-spacing="1" font-weight="600">★★★★★</text>
+      <text x="60" y="212" font-family="ui-monospace, monospace" font-size="4.5" text-anchor="middle" fill="#666C7A" letter-spacing="1">1,263 REVIEWS</text>
+
+      <!-- Services tagline -->
+      <text x="60" y="234" font-family="ui-monospace, monospace" font-size="5" text-anchor="middle" fill="#1F3729" letter-spacing="1.2" font-weight="500">CLEANING · ALTERATIONS</text>
+      <text x="60" y="244" font-family="ui-monospace, monospace" font-size="5" text-anchor="middle" fill="#1F3729" letter-spacing="1.2" font-weight="500">FOLD · RUGS · DRAPERY</text>
+
+      <!-- Door handle (vertical, near left edge where doors meet) -->
+      <rect x="8" y="138" width="6" height="36" rx="2" fill="#3A4055" stroke="#0B0E16" stroke-width="0.4"/>
+      <circle cx="11" cy="146" r="1" fill="#16191F"/>
+      <circle cx="11" cy="160" r="1.8" fill="#16191F"/>
+      <rect x="10.4" y="160" width="1.2" height="3" fill="#16191F"/>
+
+      <!-- Hinges on right edge -->
+      <rect x="116" y="40" width="4" height="14" fill="#3A4055" stroke="#0B0E16" stroke-width="0.3"/>
+      <rect x="116" y="140" width="4" height="14" fill="#3A4055" stroke="#0B0E16" stroke-width="0.3"/>
+      <rect x="116" y="240" width="4" height="14" fill="#3A4055" stroke="#0B0E16" stroke-width="0.3"/>
+
+      <!-- Sheen -->
+      <rect x="94" y="62" width="14" height="200" fill="#FFF6D5" opacity="0.12"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top utility strip -->
+<div class="util-strip">
+  <div class="wrap util-inner">
+    <div class="util-left">
+      <span><span class="dot">●</span> Open today · 7am–7pm</span>
+      <span>9150 W Pico Blvd, Los Angeles</span>
+      <span>Free pickup &amp; delivery</span>
+    </div>
+    <div class="util-right">
+      <a href="tel:+13102742431">(310) 274-2431</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M11 3 Q11 1 12.5 1 Q14.5 1 14.5 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M11 4.5 L3 11 L19 11 Z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Pico <em>Cleaners</em><span>Since 1980 · West LA</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#manifesto">About</a>
+      <a href="#services">Services</a>
+      <a href="#eco">Eco</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a href="#cta" class="nav-cta">Schedule Pickup →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+
+  <!-- FULL-SECTION VIDEO BACKGROUND -->
+  <div class="van-wrap" id="vanWrap">
+    <div class="van-hero is-loading" id="vanHero">
+      <div class="van-hero-glow" aria-hidden="true"></div>
+      <video class="van-video" id="vanVideo"
+        src="./images/pico-shirt.mp4"
+        poster="./images/pico-shirt-poster.jpg"
+        muted playsinline preload="auto" disablepictureinpicture
+        aria-label="A rumpled white shirt slowly transforms into a perfectly pressed garment">
+      </video>
+
+      <!-- Cinematic vignette for editorial depth -->
+      <div class="van-vignette" aria-hidden="true"></div>
+
+      <span class="van-scrub-hint" id="vanScrubHint">Scroll to see</span>
+
+      <!-- Tagline overlay (fades in around 67% scroll) -->
+      <div class="van-tagline" id="vanTagline" aria-hidden="true">
+        <div class="van-tagline-inner">
+          <div class="van-tagline-eyebrow">— Since 1980 · West Los Angeles —</div>
+          <p class="van-tagline-line">The way your clothes <em>used to feel.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial scene-tag annotations (positioned over the section) -->
+  <div class="scene-tag top-left">
+    <strong>● Open today</strong>
+    <span>7am – 7pm · Mon–Sat</span>
+    <div class="scene-tag-row">
+      <em>9150</em><span>· W. Pico Blvd</span>
+    </div>
+  </div>
+  <div class="scene-tag bottom-right">
+    <strong><em>Established</em> 1980</strong>
+    <span>Family owned · West LA</span>
+    <div class="scene-tag-row">
+      <em>Eco</em><span>· Green Earth certified</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- SERVICE CHIPS — quick links to each service, replaces old in-video hotspots -->
+<section class="service-chips" aria-label="Service quick links">
+  <div class="wrap">
+    <div class="service-chips-eyebrow">— What we clean —</div>
+    <div class="service-chips-row">
+      <a href="#svc-dry-cleaning" class="service-chip" data-svc="dry-cleaning">
+        <span class="service-chip-num">01</span>
+        <span class="service-chip-label">Dry Cleaning</span>
+      </a>
+      <a href="#svc-pressing" class="service-chip" data-svc="pressing">
+        <span class="service-chip-num">02</span>
+        <span class="service-chip-label">Pressing</span>
+      </a>
+      <a href="#svc-alterations" class="service-chip" data-svc="alterations">
+        <span class="service-chip-num">03</span>
+        <span class="service-chip-label">Alterations</span>
+      </a>
+      <a href="#svc-fluff-fold" class="service-chip" data-svc="fluff-fold">
+        <span class="service-chip-num">04</span>
+        <span class="service-chip-label">Fluff &amp; Fold</span>
+      </a>
+      <a href="#svc-wedding" class="service-chip" data-svc="wedding">
+        <span class="service-chip-num">05</span>
+        <span class="service-chip-label">Wedding Gowns</span>
+      </a>
+      <a href="#svc-rugs" class="service-chip" data-svc="rugs">
+        <span class="service-chip-num">06</span>
+        <span class="service-chip-label">Rugs</span>
+      </a>
+      <a href="#svc-drapery" class="service-chip" data-svc="drapery">
+        <span class="service-chip-num">07</span>
+        <span class="service-chip-label">Drapery</span>
+      </a>
+      <a href="#svc-leather" class="service-chip" data-svc="leather">
+        <span class="service-chip-num">08</span>
+        <span class="service-chip-label">Leather &amp; Suede</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HERO INTRO TEXT (separate section below the video) -->
+<section class="hero-intro">
+  <div class="wrap">
+    <div class="hero-intro-grid">
+      <div class="hero-intro-main">
+        <div class="hero-eyebrow eyebrow" id="heroEyebrow">Eco-Certified · Family-Owned · Since 1980</div>
+        <h1 class="display-xl reveal-words" id="heroH1">
+          <span class="line">For the clothes</span>
+          <span class="line">you <em>keep.</em></span>
+        </h1>
+        <p class="hero-sub" id="heroSub">
+          A family-owned cleaner on Pico Blvd, doing eco-friendly dry cleaning, alterations, and household garment care for West Los Angeles since 1980. Same-day service. Free pickup and delivery throughout the neighborhood.
+        </p>
+        <div class="hero-actions" id="heroActions">
+          <a href="#cta" class="btn-primary">
+            Schedule a pickup
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="tel:+13102742431" class="btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (310) 274-2431
+          </a>
+        </div>
+      </div>
+      <div class="hero-intro-trust" id="heroTrust">
+        <div class="hero-trust-item">
+          <span class="hero-trust-icon"><svg width="16" height="16"><use href="#leaf"/></svg></span>
+          <div class="hero-trust-text"><strong>Eco-Certified</strong>Green Earth &amp; Greenopia</div>
+        </div>
+        <div class="hero-trust-item">
+          <span class="hero-trust-icon"><svg width="16" height="16"><use href="#star"/></svg></span>
+          <div class="hero-trust-text"><strong>4.8 stars</strong>1,200+ customer reviews</div>
+        </div>
+        <div class="hero-trust-item">
+          <span class="hero-trust-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <div class="hero-trust-text"><strong>Same-day</strong>service available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Dry Cleaning</span><span>Shirt Laundry</span><span>Alterations</span><span>Fluff &amp; Fold</span>
+    <span>Wedding Gowns</span><span>Drapery</span><span>Linens</span><span>Leather &amp; Suede</span>
+    <span>Dry Cleaning</span><span>Shirt Laundry</span><span>Alterations</span><span>Fluff &amp; Fold</span>
+    <span>Wedding Gowns</span><span>Drapery</span><span>Linens</span><span>Leather &amp; Suede</span>
+  </div>
+</div>
+
+<!-- Manifesto -->
+<section class="manifesto" id="manifesto">
+  <div class="wrap">
+    <div class="manifesto-grid">
+      <aside class="manifesto-side reveal">
+        <div class="eyebrow">A note from the family</div>
+        <p>Three generations of garment care on the same block. The neighborhood has changed around us — the standard hasn't. Every piece you bring us is treated like our own.</p>
+      </aside>
+      <div>
+        <h2 class="display-l reveal-words">
+          <span class="line">Forty-five</span>
+          <span class="line">years on</span>
+          <span class="line"><em>Pico Blvd.</em></span>
+        </h2>
+        <div class="manifesto-body reveal" style="margin-top:32px;">
+          <p>Pico Cleaners has been West Los Angeles's neighborhood cleaner since 1980. Family-owned, certified green, and built around the idea that the clothes worth keeping deserve to be cared for like they matter.</p>
+          <p>We handle daily shirts and special-occasion gowns with the same attention. We press, we mend, we steam, and we tell you the truth about what can — and can't — be saved. Free pickup and delivery throughout the neighborhood. Same-day service when you need it. VIP drive-through when you're in a rush.</p>
+        </div>
+        <div class="manifesto-callout reveal">
+          <strong>Free pickup &amp; delivery</strong>
+          We come to you. Schedule a stop online or by phone, and we'll handle everything from your doorstep — clean, pressed, and back on the hanger.
+        </div>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div>
+        <div class="stat-num"><span data-count="45">0</span><em>+ yrs</em></div>
+        <div class="stat-label"><strong>On Pico Blvd</strong>Since 1980 · Same family</div>
+      </div>
+      <div>
+        <div class="stat-num">4.<span data-count="8">0</span><em>★</em></div>
+        <div class="stat-label"><strong>1,200+ reviews</strong>Across Yelp &amp; Google</div>
+      </div>
+      <div>
+        <div class="stat-num"><span data-count="2">0</span></div>
+        <div class="stat-label"><strong>Eco certifications</strong>Green Earth · Greenopia</div>
+      </div>
+      <div>
+        <div class="stat-num"><span data-count="7">0</span></div>
+        <div class="stat-label"><strong>Days a week</strong>Open Sundays too</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3D EXPLOSIVE SERVICES ============ -->
+<section class="explosion" id="services">
+  <div class="wrap">
+    <div class="explosion-head">
+      <div class="eyebrow">What we clean</div>
+      <h2 class="display-l reveal-words">
+        <span class="line">Everything</span>
+        <span class="line">in your <em>closet,</em></span>
+        <span class="line">covered.</span>
+      </h2>
+      <p>Eight specialties under one roof. Each piece arrives at the right station with the right hands — we don't believe in one-size-fits-all cleaning.</p>
+    </div>
+
+    <div class="explosion-stage" id="explosionStage">
+      <div class="explosion-grid" id="explosionGrid">
+
+        <a href="#cta" class="explode-card" id="svc-dry-cleaning" data-svc="dry-cleaning">
+          <div class="explode-card-num">01 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 4 L22 2 Q22 0 24 0 Q26 0 26 3"/>
+              <path d="M22 5 L8 18 L36 18 Z"/>
+              <path d="M14 18 L14 38 L30 38 L30 18"/>
+            </svg>
+          </span>
+          <h3>Dry <em>Cleaning</em></h3>
+          <p>Eco-friendly solvents and meticulous pressing for suits, dresses, coats — delicate fabrics that need professional handling.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Suits, dresses, blazers, coats</li>
+              <li>Silk, wool, cashmere, delicates</li>
+              <li>Same-day available when dropped before noon</li>
+              <li>Green Earth certified eco-solvents</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>Pricing from <em>$8.50</em> per piece</span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
+            <span><em>Green Earth</em> · Same-day</span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-pressing" data-svc="pressing">
+          <div class="explode-card-num">02 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 24 L34 24 L30 36 L14 36 Z"/>
+              <path d="M14 24 Q14 16 22 16 Q30 16 30 24"/>
+              <path d="M18 12 Q18 8 16 8 M22 12 Q22 6 24 6 M26 12 Q26 8 28 8"/>
+            </svg>
+          </span>
+          <h3>Steam <em>Pressing</em></h3>
+          <p>Crisp shirts, knife-edge creases, lifted lapels. Hand-pressed by people who've been doing this for 30+ years.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Dress shirts pressed to order</li>
+              <li>Pant creases hand-set on the form</li>
+              <li>Touch-up service when you're between cleanings</li>
+              <li>Steam-only option for delicate fabrics</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>From <em>$3.50</em> per shirt</span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="1"/><path d="M3 10 L21 10"/></svg>
+            <span>Boxed or <em>on hanger</em></span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-alterations" data-svc="alterations">
+          <div class="explode-card-num">03 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="9" r="3"/>
+              <path d="M11 11 L33 33"/>
+              <path d="M9 12 L9 32"/>
+              <circle cx="9" cy="35" r="3"/>
+              <path d="M33 13 L26 20"/>
+            </svg>
+          </span>
+          <h3>Alterations &amp; <em>Tailoring</em></h3>
+          <p>Hems, taper, take-in, let-out, full re-fits. On-site tailors with decades of needle time, available seven days a week.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Hems, cuffs, taper, take-in/let-out</li>
+              <li>Suit alterations and re-shaping</li>
+              <li>Wedding-gown fittings by appointment</li>
+              <li>Zipper, lining, and button repairs</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>Quotes free <em>in-shop</em></span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4 L20 20 M4 20 L20 4"/></svg>
+            <span>Same-day <em>fittings</em></span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-fluff-fold" data-svc="fluff-fold">
+          <div class="explode-card-num">04 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="10" width="32" height="28" rx="3"/>
+              <circle cx="22" cy="24" r="8"/>
+              <circle cx="22" cy="24" r="4"/>
+              <circle cx="32" cy="16" r="1.2"/>
+            </svg>
+          </span>
+          <h3>Fluff &amp; <em>Fold</em></h3>
+          <p>Drop your everyday laundry. We wash, dry, fold, and have it back to you next-day, ready to put away.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Wash, dry, fold by the pound</li>
+              <li>Hypoallergenic detergent on request</li>
+              <li>Next-day turnaround standard</li>
+              <li>Sock-matching done on the house</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>From <em>$2.25</em> per pound</span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 L21 12"/><path d="M6 6 L6 18"/><path d="M18 6 L18 18"/></svg>
+            <span>By the <em>pound</em></span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-wedding" data-svc="wedding">
+          <div class="explode-card-num">05 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 6 L18 12 L14 36 L30 36 L26 12 Z"/>
+              <path d="M19 18 Q22 14 25 18"/>
+              <path d="M22 6 L20 4 L24 4 L22 6"/>
+            </svg>
+          </span>
+          <h3>Wedding <em>Gowns</em></h3>
+          <p>Specialized cleaning, restoration, and preservation. Stains lifted, seed pearls protected, gown stored to last.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Pre-wedding press &amp; steam</li>
+              <li>Post-wedding stain treatment</li>
+              <li>Acid-free archival preservation box</li>
+              <li>Heirloom restoration for vintage gowns</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>Preservation from <em>$295</em></span>
+              <span class="explode-card-arrow">Schedule consultation →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12 L21 12"/></svg>
+            <span>Boxed for <em>archive</em></span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-rugs" data-svc="rugs">
+          <div class="explode-card-num">06 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="8" cy="22" rx="4" ry="14"/>
+              <rect x="8" y="8" width="28" height="28"/>
+              <ellipse cx="36" cy="22" rx="4" ry="14"/>
+              <path d="M36 14 L40 16 M36 30 L40 32"/>
+            </svg>
+          </span>
+          <h3>Area <em>Rugs</em></h3>
+          <p>Persian, oriental, wool, silk — hand-cleaned, beaten of dust, color-balanced, and returned soft and like-new.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Hand-wash for wool, silk, and antique rugs</li>
+              <li>Pet-stain and odor neutralization</li>
+              <li>Color-bleed correction</li>
+              <li>Fringe repair and re-binding</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>Quoted <em>by size</em></span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 H21"/><path d="M3 6 H21"/><path d="M3 18 H21"/></svg>
+            <span>Hand-cleaned · <em>Free pickup</em></span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-drapery" data-svc="drapery">
+          <div class="explode-card-num">07 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="6" width="28" height="32" />
+              <path d="M14 6 L14 38 M20 6 L20 38 M26 6 L26 38 M32 6 L32 38"/>
+              <line x1="8" y1="6" x2="36" y2="6"/>
+            </svg>
+          </span>
+          <h3>Drapery &amp; <em>Linens</em></h3>
+          <p>Comforters, drapes, sheets, tablecloths. On-site drapery take-down and re-hanging available.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Take-down, clean, re-hang service</li>
+              <li>Comforters, duvets, bedspreads</li>
+              <li>Tablecloths and event linens</li>
+              <li>Pleat restoration on drapes</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>Free <em>in-home</em> estimates</span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 H21"/></svg>
+            <span>On-site <em>take-down</em></span>
+          </div>
+        </a>
+
+        <a href="#cta" class="explode-card" id="svc-leather" data-svc="leather">
+          <div class="explode-card-num">08 · Tag</div>
+          <span class="explode-card-icon">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 14 L34 14 L32 38 L12 38 Z"/>
+              <path d="M14 14 L14 8 L30 8 L30 14"/>
+              <path d="M16 22 Q22 18 28 22"/>
+              <path d="M16 28 Q22 24 28 28"/>
+            </svg>
+          </span>
+          <h3>Leather &amp; <em>Suede</em></h3>
+          <p>Jackets, coats, handbags, shoes. Specialized leather cleaning that conditions and restores without stripping the finish.</p>
+          <div class="explode-card-details">
+            <ul class="explode-card-list">
+              <li>Hand-cleaning for jackets and coats</li>
+              <li>Suede brushing &amp; color refresh</li>
+              <li>Conditioning oils to prevent cracking</li>
+              <li>Handbag and shoe service available</li>
+            </ul>
+            <div class="explode-card-cta">
+              <span>Jackets from <em>$45</em></span>
+              <span class="explode-card-arrow">Schedule pickup →</span>
+            </div>
+          </div>
+          <div class="explode-card-symbols">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12 L16 12"/></svg>
+            <span>Hand-cleaned · <em>Reconditioned</em></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECO -->
+<section class="eco" id="eco">
+  <div class="wrap">
+    <div class="eco-grid">
+      <div class="eco-body">
+        <div class="eyebrow gold">Green by certification</div>
+        <h2 class="display-m reveal-words" style="margin-top:20px;">
+          <span class="line">Clean clothes,</span>
+          <span class="line"><em>clean</em> conscience.</span>
+        </h2>
+        <p class="reveal">We replaced the old chemical solvents years ago. Today, every piece is cleaned with eco-friendly methods certified by Green Earth Cleaning and Greenopia — the same gentle process for delicate silks as for everyday shirts.</p>
+        <div class="eco-list">
+          <div class="eco-item reveal">
+            <span class="eco-item-icon"><svg width="16" height="16"><use href="#leaf"/></svg></span>
+            <div><strong>Green Earth certified</strong><span>Non-toxic, biodegradable cleaning agents — no perc, no harsh chemicals.</span></div>
+          </div>
+          <div class="eco-item reveal">
+            <span class="eco-item-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <div><strong>Greenopia rated</strong><span>Independently rated for environmentally responsible practices.</span></div>
+          </div>
+          <div class="eco-item reveal">
+            <span class="eco-item-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2 M12 20v2 M2 12h2 M20 12h2 M4.93 4.93l1.41 1.41 M17.66 17.66l1.41 1.41 M4.93 19.07l1.41-1.41 M17.66 6.34l1.41-1.41"/></svg>
+            </span>
+            <div><strong>Efficient equipment</strong><span>Modern machinery designed to use less water, less energy, and last longer.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="eco-visual reveal">
+        <span class="eco-badge">Certified Green</span>
+        <svg class="eco-leaf l1"><use href="#leaf"/></svg>
+        <svg class="eco-leaf l2"><use href="#leaf"/></svg>
+        <svg class="eco-leaf l3"><use href="#leaf"/></svg>
+        <svg class="eco-leaf l4"><use href="#leaf"/></svg>
+        <svg class="eco-bottle" viewBox="0 0 100 200"><use href="#eco-bottle"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PICKUP / Process -->
+<section class="pickup">
+  <div class="wrap">
+    <div class="pickup-head">
+      <h2 class="display-l reveal-words">
+        <span class="line">From your</span>
+        <span class="line">door, <em>back</em></span>
+        <span class="line">to your closet.</span>
+      </h2>
+      <p class="reveal">Four steps. Most of the time you don't even need to be home.</p>
+    </div>
+    <div class="pickup-flow">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <h4>Schedule</h4>
+        <p>Book a pickup window online or call us — we offer same-day pickup most days when scheduled before noon.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">02</span>
+        <h4>We pick up</h4>
+        <p>Leave your bag at the door. Our driver swings by during your window, scans your tag, and takes everything to the shop.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">03</span>
+        <h4>We clean</h4>
+        <p>Each piece is inspected, tagged by hand, and routed to the right station — dry clean, launder, alter, or specialty.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">04</span>
+        <h4>We deliver</h4>
+        <p>Pressed, hung, and bagged. Back at your door within 1–3 days depending on the service. Bill us monthly if you prefer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D REVIEWS CUBE -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-grid">
+      <div class="reviews-body">
+        <div class="eyebrow gold">Word from the neighborhood</div>
+        <h2 class="display-l reveal-words" style="margin-top:20px;">
+          <span class="line">A 4.8</span>
+          <span class="line">from <em>1,200+</em></span>
+          <span class="line">customers.</span>
+        </h2>
+        <p class="reveal">Most of our reviewers have been bringing their clothes to Pico Cleaners for a decade or more. The most common word in the reviews is "Dan" — our delivery driver — closely followed by "careful."</p>
+        <p class="reveal">Scroll to read four of the most recent.</p>
+        <div class="reviews-rating reveal">
+          <div class="reviews-rating-stars">
+            <svg width="20" height="20"><use href="#star"/></svg>
+            <svg width="20" height="20"><use href="#star"/></svg>
+            <svg width="20" height="20"><use href="#star"/></svg>
+            <svg width="20" height="20"><use href="#star"/></svg>
+            <svg width="20" height="20"><use href="#star"/></svg>
+          </div>
+          <div>
+            <div class="reviews-rating-num">4.<em>8</em><span style="color:var(--ink-mute);font-size:14px;font-weight:400;"> / 5</span></div>
+            <div class="reviews-rating-text">1,263+ reviews · Yelp &amp; Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="cube-stage" id="cubeStage">
+          <div class="cube" id="cube">
+            <div class="cube-face cube-face-front">
+              <div class="cube-face-head">
+                <span class="cube-face-stars">
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                </span>
+                <span class="cube-face-num">01 / 04</span>
+              </div>
+              <blockquote>Door-to-door delivery is the best part. Dan takes careful notes on every special request and goes above and beyond for us.</blockquote>
+              <div class="cube-face-cite">
+                <strong>Judy P.</strong>
+                <span>Long-time customer · West LA</span>
+              </div>
+            </div>
+            <div class="cube-face cube-face-right">
+              <div class="cube-face-head">
+                <span class="cube-face-stars">
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                </span>
+                <span class="cube-face-num">02 / 04</span>
+              </div>
+              <blockquote>I've been a customer since 1997 and the service has never slipped. Always professional, clean, and attentive.</blockquote>
+              <div class="cube-face-cite">
+                <strong>Marie L.</strong>
+                <span>Customer since 1997</span>
+              </div>
+            </div>
+            <div class="cube-face cube-face-back">
+              <div class="cube-face-head">
+                <span class="cube-face-stars">
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                </span>
+                <span class="cube-face-num">03 / 04</span>
+              </div>
+              <blockquote>Nicely cleaned, fair price, quick turnaround. Exactly what I needed before a last-minute trip.</blockquote>
+              <div class="cube-face-cite">
+                <strong>Rochelle P.</strong>
+                <span>Same-day service customer</span>
+              </div>
+            </div>
+            <div class="cube-face cube-face-left">
+              <div class="cube-face-head">
+                <span class="cube-face-stars">
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                  <svg width="14" height="14"><use href="#star"/></svg>
+                </span>
+                <span class="cube-face-num">04 / 04</span>
+              </div>
+              <blockquote>The front desk greeted me with a warm smile. Easy in, easy out, and great work on a tricky stain.</blockquote>
+              <div class="cube-face-cite">
+                <strong>Jennifer S.</strong>
+                <span>First-time customer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cube-counter">
+          <span class="now" id="cubeNow">01</span>
+          <span class="bar"><span class="bar-fill" id="cubeBarFill"></span></span>
+          <span>04 · Reviews</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" id="cta">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow on-dark" style="justify-content:center;display:inline-flex;">Free pickup &amp; delivery</div>
+      <h2 class="display-l reveal-words" style="margin-top:20px;">
+        <span class="line">Schedule a</span>
+        <span class="line"><em>pickup</em> today.</span>
+      </h2>
+      <p>Most addresses in West LA qualify for free pickup &amp; delivery. Call or stop by — we'll set up a recurring schedule that fits your life.</p>
+      <a href="tel:+13102742431" class="cta-banner-phone">(310) 274-2431</a>
+      <div class="cta-actions">
+        <a href="#visit" class="btn-primary">
+          Visit our shop
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="tel:+13102742431" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Schedule by phone
+        </a>
+      </div>
+      <div class="cta-meta">Same-day available · 7 days a week · Eco-certified</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT / Location -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <div class="eyebrow">Visit the shop</div>
+        <h2 class="display-l reveal-words" style="margin-top:20px;">
+          <span class="line">On the corner</span>
+          <span class="line">of <em>Pico</em>.</span>
+        </h2>
+        <p class="reveal">Stop in, drop off, or use our VIP drive-through. Free parking. Open seven days a week, including Sundays.</p>
+
+        <div class="visit-detail-list">
+          <div class="visit-detail reveal">
+            <span class="visit-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div class="visit-detail-text">
+              <span class="visit-detail-label">Address</span>
+              <span class="visit-detail-value"><a href="https://www.google.com/maps/place/Pico+Cleaners" target="_blank" rel="noopener">9150 W Pico Blvd<br>Los Angeles, CA 90035</a></span>
+            </div>
+          </div>
+          <div class="visit-detail reveal">
+            <span class="visit-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div class="visit-detail-text">
+              <span class="visit-detail-label">Phone</span>
+              <span class="visit-detail-value"><a href="tel:+13102742431">(310) 274-2431</a></span>
+            </div>
+          </div>
+          <div class="visit-detail reveal">
+            <span class="visit-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div class="visit-detail-text">
+              <span class="visit-detail-label">Hours</span>
+              <span class="visit-detail-value">Mon–Fri · 7:00 am – 7:00 pm<br>Sat · 8:00 am – 5:00 pm<br>Sun · 9:00 am – 4:00 pm</span>
+            </div>
+          </div>
+          <div class="visit-detail reveal">
+            <span class="visit-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            </span>
+            <div class="visit-detail-text">
+              <span class="visit-detail-label">VIP drive-through</span>
+              <span class="visit-detail-value">Pull up and drop off without leaving your car</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-frame reveal">
+        <iframe src="https://www.google.com/maps?q=9150+W+Pico+Blvd,+Los+Angeles,+CA+90035&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pico Cleaners location"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPITALITY PANEL — Subtle link to the dedicated hotel page -->
+<section class="hospitality-panel">
+  <div class="wrap">
+    <div class="hospitality-inner">
+      <div class="hospitality-text">
+        <div class="hospitality-eyebrow">— For hotels & hospitality —</div>
+        <h2 class="hospitality-title">A trusted partner to <em>LA's finest hotels.</em></h2>
+        <p class="hospitality-sub">
+          For more than four decades, we have served the laundry, dry-cleaning, and textile
+          needs of over <em>fifty</em> four- and five-star properties across Los Angeles.
+          Four facilities, a dedicated hotel-processing center, and quiet,
+          consistent expertise — turn after turn, season after season.
+        </p>
+      </div>
+      <a class="hospitality-cta" href="./hotels.html">
+        <span class="hospitality-cta-eyebrow">Hospitality services →</span>
+        <span class="hospitality-cta-text">View the operation</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-mark">Pico<br>Cleaners<em>.</em></div>
+        <p class="foot-tag">Family-owned, eco-certified garment care on West LA's Pico Blvd since 1980. The neighborhood cleaner you keep coming back to.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Dry Cleaning</a></li>
+          <li><a href="#services">Shirt Laundry</a></li>
+          <li><a href="#services">Alterations</a></li>
+          <li><a href="#services">Fluff &amp; Fold</a></li>
+          <li><a href="#services">Wedding Gowns</a></li>
+          <li><a href="#services">Drapery &amp; Linens</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>The Shop</h5>
+        <ul>
+          <li><a href="#manifesto">Our Story</a></li>
+          <li><a href="#eco">Eco Practices</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+          <li><a href="https://www.facebook.com/PicoCleaners/">Facebook</a></li>
+          <li><a href="https://www.yelp.com/biz/pico-cleaners-los-angeles-2">Yelp</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Visit</h5>
+        <ul>
+          <li>9150 W Pico Blvd<br>Los Angeles, CA 90035</li>
+          <li><a href="tel:+13102742431">(310) 274-2431</a></li>
+          <li>Open 7 days a week</li>
+          <li>Free pickup &amp; delivery</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© Pico Cleaners · Family-owned since 1980 · Los Angeles, CA</div>
+      <div><a href="#top">Back to top ↑</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Set --cube-half based on cube width so 3D faces line up
+  function syncCubeSize() {
+    const cube = document.getElementById('cube');
+    if (!cube) return;
+    const w = cube.getBoundingClientRect().width;
+    cube.style.setProperty('--cube-half', (w / 2) + 'px');
+  }
+  syncCubeSize();
+  window.addEventListener('resize', syncCubeSize);
+
+  // Word splitter
+  function splitWords(el) {
+    el.querySelectorAll('.line').forEach(line => {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = line.innerHTML;
+      const out = [];
+      tmp.childNodes.forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const parts = child.textContent.split(/(\s+)/);
+          parts.forEach(p => {
+            if (p.trim() === '') out.push(p);
+            else out.push(`<span class="word">${p}</span>`);
+          });
+        } else {
+          out.push(`<span class="word">${child.outerHTML}</span>`);
+        }
+      });
+      line.innerHTML = out.join('');
+    });
+  }
+  document.querySelectorAll('.reveal-words').forEach(splitWords);
+
+  // GSAP fallback
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    document.documentElement.classList.add('no-anim');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'none';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal,#vanWrap').forEach(el => io.observe(el));
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis — DESKTOP ONLY (iOS Safari has pin/scrub conflicts with Lenis)
+  let lenis = null;
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (typeof Lenis !== 'undefined' && !reduced && !isTouchDevice) {
+    lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.4,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+        }
+      });
+    });
+  }
+
+  // Progress bar
+  const progress = document.getElementById('progressBar');
+  ScrollTrigger.create({
+    start: 0, end: 'max',
+    onUpdate: (self) => { progress.style.width = (self.progress * 100) + '%'; }
+  });
+
+  // Nav scrolled
+  const nav = document.getElementById('nav');
+  ScrollTrigger.create({
+    start: 60, end: 'max',
+    onUpdate: (self) => {
+      if (self.scroll() > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    }
+  });
+
+  // Hero entry
+  const heroTl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  heroTl
+    .to('#heroEyebrow',  { opacity: 1, y: 0, duration: 1 }, 0.1)
+    .to('#heroH1 .word', { yPercent: 0, duration: 1.2, stagger: 0.04 }, 0.2)
+    .to('#heroSub',      { opacity: 1, y: 0, duration: 1 }, 0.6)
+    .to('#heroActions',  { opacity: 1, y: 0, duration: 1 }, 0.8)
+    .to('#heroTrust',    { opacity: 1, y: 0, duration: 1 }, 0.95)
+    .to('#vanWrap', { opacity: 1, duration: 1.4, ease: 'power2.out' }, 0.4);
+
+  // === DELIVERY VAN HERO — SCROLL-SCRUBBED VIDEO ===
+  // As the user scrolls through the hero section, the video's playhead
+  // is mapped to scroll position: doors open, items fly out, exactly
+  // in sync with their scrolling.
+  const vanVideo = document.getElementById('vanVideo');
+  const vanHero = document.getElementById('vanHero');
+  const vanGlow = document.querySelector('.van-hero-glow');
+  const vanSparkles = document.querySelector('.van-hero-sparkles');
+  const scrubHint = document.getElementById('vanScrubHint');
+
+  if (vanVideo) {
+    console.log('[VIDEO] Element found. src:', vanVideo.src, 'readyState:', vanVideo.readyState);
+
+    // iOS Safari needs a brief play() to "wake up" the video before currentTime updates render
+    let videoReady = false;
+    const primeVideo = () => {
+      if (videoReady) return;
+      videoReady = true;
+      console.log('[VIDEO] Priming — duration:', vanVideo.duration);
+      vanVideo.play().then(() => {
+        vanVideo.pause();
+        vanVideo.currentTime = 0;
+        console.log('[VIDEO] Primed successfully. currentTime=0');
+      }).catch((err) => {
+        console.log('[VIDEO] Autoplay blocked (expected):', err.message);
+        // Force currentTime=0 anyway so it's ready to scrub
+        try { vanVideo.currentTime = 0.01; } catch (e) {}
+      });
+    };
+
+    // Remove loading shimmer once we have enough data to render frames
+    const handleCanPlay = () => {
+      console.log('[VIDEO] canplay fired. duration:', vanVideo.duration);
+      vanHero.classList.remove('is-loading');
+      primeVideo();
+      if (scrubHint) {
+        scrubHint.classList.add('is-visible');
+        setTimeout(() => scrubHint.classList.remove('is-visible'), 3500);
+      }
+    };
+    if (vanVideo.readyState >= 2) {
+      console.log('[VIDEO] Already loaded on script run');
+      handleCanPlay();
+    } else {
+      vanVideo.addEventListener('loadeddata', handleCanPlay, { once: true });
+      vanVideo.addEventListener('canplay', handleCanPlay, { once: true });
+    }
+
+    // Belt-and-suspenders: force load after 2 seconds if events don't fire
+    setTimeout(() => {
+      if (!videoReady) {
+        console.warn('[VIDEO] Events did not fire — forcing init');
+        handleCanPlay();
+      }
+    }, 2000);
+
+    // Scrub state — we use rAF to throttle currentTime updates to display refresh
+    let targetTime = 0;
+    let currentTime = 0;
+    let rafId = null;
+
+    function tickScrub() {
+      // Smoothly approach target time (gives a slight inertia for nicer feel)
+      currentTime += (targetTime - currentTime) * 0.18;
+      if (vanVideo.duration && !isNaN(vanVideo.duration)) {
+        try {
+          vanVideo.currentTime = currentTime;
+        } catch (e) { /* ignore */ }
+      }
+      // Keep ticking if we haven't fully caught up
+      if (Math.abs(targetTime - currentTime) > 0.01) {
+        rafId = requestAnimationFrame(tickScrub);
+      } else {
+        rafId = null;
+      }
+    }
+
+    // Drive targetTime from hero scroll progress
+    // PIN the hero so the section stays in view for the full duration
+    // of the video. The scrub then plays out over `pinDuration` of scroll.
+    const pinDuration = '+=120%';
+    const vanTagline = document.getElementById('vanTagline');
+    let taglineShown = false;
+    ScrollTrigger.create({
+      trigger: '.hero',
+      start: 'top top',
+      end: pinDuration,
+      pin: true,
+      pinSpacing: true,
+      scrub: true,
+      anticipatePin: 1,
+      onUpdate: (self) => {
+        if (!vanVideo.duration || isNaN(vanVideo.duration)) return;
+        targetTime = self.progress * Math.max(0, vanVideo.duration - 0.2);
+        if (rafId === null) {
+          rafId = requestAnimationFrame(tickScrub);
+        }
+
+        // Tagline fades in once the shirt transformation finishes (~67% scroll)
+        if (vanTagline && typeof self.progress === 'number' && self.progress > 0) {
+          if (self.progress > 0.67 && !taglineShown) {
+            taglineShown = true;
+            vanTagline.classList.add('is-visible');
+            // Hide the "Scroll to see" hint once the tagline appears
+            if (scrubHint) scrubHint.classList.remove('is-visible');
+          } else if (self.progress < 0.62 && taglineShown) {
+            taglineShown = false;
+            vanTagline.classList.remove('is-visible');
+          }
+        }
+      }
+    });
+
+    // Glow fades in early (first 25% of pinned scroll)
+    gsap.to(vanGlow, {
+      opacity: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'top top-=' + (window.innerHeight * 0.3),
+        scrub: 0.6,
+      }
+    });
+
+    // (Old sparkle animation removed — no more fairy dust on the new editorial hero.)
+
+    // TEXT INTRO is now a separate section below — no overlay fade needed.
+    // (In-video hotspots removed — service chips now live in their own section below the hero.)
+
+    // Subtle scale parallax through the full pinned section
+    gsap.fromTo(vanHero,
+      { scale: 1.02 },
+      {
+        scale: 1.0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: pinDuration,
+          scrub: 1
+        }
+      }
+    );
+
+    // Fallback: if video errors out, leave poster image visible (already shown via poster attr)
+    vanVideo.addEventListener('error', () => {
+      vanHero.classList.remove('is-loading');
+    });
+
+    // iOS Safari fix: force ScrollTrigger to recalculate pin positions once
+    // the video has loaded its dimensions. Without this, mobile Safari often
+    // calculates the pin against a 0×0 video element on initial load.
+    const refreshScrollTrigger = () => { ScrollTrigger.refresh(); };
+    vanVideo.addEventListener('loadedmetadata', refreshScrollTrigger);
+    vanVideo.addEventListener('loadeddata', refreshScrollTrigger);
+    window.addEventListener('load', () => setTimeout(refreshScrollTrigger, 200));
+    window.addEventListener('orientationchange', () => setTimeout(refreshScrollTrigger, 300));
+  }
+
+  // === EXPLOSIVE 3D SERVICES ===
+  // Each card flies outward from cluster at center to its natural grid position
+  function setupExplosion() {
+    const stage = document.getElementById('explosionStage');
+    const grid = document.getElementById('explosionGrid');
+    if (!stage || !grid) return;
+
+    const cards = gsap.utils.toArray('.explode-card');
+    const gridRect = grid.getBoundingClientRect();
+    const centerX = gridRect.left + gridRect.width / 2;
+    const centerY = gridRect.top + gridRect.height / 2;
+
+    // Compute each card's offset to viewport center for "from" position
+    cards.forEach((card, i) => {
+      const r = card.getBoundingClientRect();
+      const cardCx = r.left + r.width / 2;
+      const cardCy = r.top + r.height / 2;
+      const dx = (centerX - cardCx) * 0.85;
+      const dy = (centerY - cardCy) * 0.7;
+      const rot = gsap.utils.random(-22, 22);
+
+      gsap.fromTo(card,
+        {
+          x: dx, y: dy,
+          scale: 0.35,
+          opacity: 0,
+          rotation: rot,
+        },
+        {
+          x: 0, y: 0,
+          scale: 1,
+          opacity: 1,
+          rotation: 0,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: '.explosion',
+            start: 'top 75%',
+            end: 'center 40%',
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onLeave: () => {
+              // Clear all GSAP-set transforms so clicks work cleanly at rest
+              gsap.set(card, { clearProps: 'transform' });
+            },
+          }
+        }
+      );
+    });
+  }
+  setupExplosion();
+
+  // === SERVICE CARDS — click to expand details (Option C behavior) ===
+  const cards = document.querySelectorAll('.explode-card');
+
+  function expandCard(card, fromHotspot) {
+    // Collapse any other expanded card
+    cards.forEach(c => {
+      if (c !== card) c.classList.remove('is-expanded', 'is-arrived');
+    });
+    // Toggle this one
+    if (fromHotspot) {
+      // Force open (don't toggle) and add arrival pulse
+      card.classList.add('is-expanded', 'is-arrived');
+      setTimeout(() => card.classList.remove('is-arrived'), 2600);
+    } else {
+      card.classList.toggle('is-expanded');
+    }
+  }
+
+  cards.forEach((card) => {
+    card.style.pointerEvents = 'auto';
+    card.style.cursor = 'pointer';
+    // Capture phase + stopImmediatePropagation so this runs BEFORE Lenis's smooth-scroll handler
+    card.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      // Special case: click on the "Schedule pickup →" arrow inside an expanded card → go to CTA
+      const arrow = e.target.closest('.explode-card-arrow');
+      if (arrow && card.classList.contains('is-expanded')) {
+        const target = document.querySelector('#cta');
+        if (target) {
+          if (typeof lenis !== 'undefined' && lenis && lenis.scrollTo) {
+            lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        return;
+      }
+      // If clicking an already-expanded card → collapse it (no scroll, no glow)
+      if (card.classList.contains('is-expanded')) {
+        card.classList.remove('is-expanded', 'is-arrived');
+        return;
+      }
+      // Otherwise: trigger the same arrival-glow expand as hotspot clicks
+      expandCard(card, true);
+    }, true); // ← capture phase
+  });
+
+  // === SERVICE CHIP CLICKS — scroll to matching card AND expand it ===
+  // (Replaces old in-video hotspots; chips now live in their own section below the hero)
+  const serviceChips = document.querySelectorAll('.service-chip');
+  serviceChips.forEach((chip) => {
+    chip.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      const targetSelector = this.getAttribute('href');
+      if (!targetSelector) return;
+      const target = document.querySelector(targetSelector);
+      if (!target) return;
+
+      // Scroll to the matching service card
+      if (typeof lenis !== 'undefined' && lenis && lenis.scrollTo) {
+        lenis.scrollTo(target, { offset: -120, duration: 1.6 });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      // Expand the card after scroll lands (with gold halo glow)
+      setTimeout(() => expandCard(target, true), 1100);
+    }, true); // capture phase — runs before Lenis's generic anchor handler
+  });
+
+  // === 3D ROTATING TESTIMONIAL CUBE ===
+  const cube = document.getElementById('cube');
+  const cubeNow = document.getElementById('cubeNow');
+  const cubeBarFill = document.getElementById('cubeBarFill');
+  if (cube && window.matchMedia('(min-width: 701px)').matches) {
+    const cubeState = { rotY: 0 };
+    gsap.to(cubeState, {
+      rotY: -360, ease: 'none',
+      scrollTrigger: {
+        trigger: '.reviews',
+        start: 'top 65%',
+        end: 'bottom top',
+        scrub: 1,
+      },
+      onUpdate: () => {
+        cube.style.transform = `rotateX(-8deg) rotateY(${cubeState.rotY}deg)`;
+        const normalized = ((-cubeState.rotY % 360) + 360) % 360;
+        const faceIdx = Math.floor(normalized / 90) + 1;
+        const idx = Math.min(4, Math.max(1, faceIdx));
+        cubeNow.textContent = String(idx).padStart(2, '0');
+        cubeBarFill.style.width = ((normalized / 360) * 100) + '%';
+      }
+    });
+  }
+
+  // === ECO bottle subtle float + leaves drift ===
+  const bottle = document.querySelector('.eco-bottle');
+  if (bottle) {
+    gsap.to(bottle, {
+      y: -10, rotateZ: 1.5,
+      duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut'
+    });
+  }
+  gsap.utils.toArray('.eco-leaf').forEach((leaf, i) => {
+    gsap.to(leaf, {
+      y: gsap.utils.random(-12, 12),
+      x: gsap.utils.random(-6, 6),
+      rotation: `+=${gsap.utils.random(-8, 8)}`,
+      duration: gsap.utils.random(3, 5),
+      repeat: -1, yoyo: true, ease: 'sine.inOut',
+      delay: i * 0.2
+    });
+  });
+
+  // === Word reveals (non-hero) ===
+  document.querySelectorAll('.reveal-words').forEach(el => {
+    if (el.id === 'heroH1') return;
+    const words = el.querySelectorAll('.word');
+    gsap.to(words, {
+      yPercent: 0, duration: 1, stagger: 0.035, ease: 'expo.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
+    });
+  });
+
+  // === Generic .reveal ===
+  gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, ease: 'expo.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none reverse' }
+      });
+  });
+
+  // === Counters ===
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseFloat(el.dataset.count);
+    const decimals = (el.dataset.count.split('.')[1] || '').length;
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target, duration: 1.6, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' },
+      onUpdate: () => {
+        el.textContent = decimals ? obj.val.toFixed(decimals) : Math.round(obj.val);
+      }
+    });
+  });
+
+  // Resize refresh
+  let resizeTO;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTO);
+    resizeTO = setTimeout(() => { syncCubeSize(); ScrollTrigger.refresh(); }, 200);
+  });
+
+  window.addEventListener('load', () => { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
